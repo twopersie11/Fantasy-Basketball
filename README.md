@@ -34,6 +34,18 @@ The NBA Fantasy Basketball Assistant is a full-stack AI application designed to 
 </div>
 
 ***
+## Project Details
+
+### Navigating the Repository:
+incoming
+
+### Tech Stack:
+incoming
+
+### Running the Application:
+incoming
+
+***
 #### This project is [licensed](LICENSE) under the `MIT License`.
 ##### _Copyright (c) 2024 Naisha Sinha_
 
