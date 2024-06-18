@@ -22,7 +22,7 @@ The NBA Fantasy Basketball Assistant is a full-stack AI application designed to 
   
 ### 📊 Team Performance Analysis
   
-→ **Historical Data Insights**: _Analyze historical data over the last eight seasons to predict future team performances._ <br>
+→ **Historical Data Insights**: _Analyze historical data over the last nine seasons to predict future team performances._ <br>
 → **Current Form**: _Calculate rolling averages of key statistics over recent games to determine current form and identify trends._
 
 ### 🏆 Matchup Analyzer 
