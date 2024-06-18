@@ -43,7 +43,7 @@ The NBA Fantasy Basketball Assistant is a full-stack AI application designed to 
     <td> 
       <ul>
         <li>
-          <strong>ML-Model <a href = "">README.md</a> file: </strong> <br> Provides details and explanations behind the web scraping and predictor model training process
+          <strong>ML-Model <a href = "ML-Model/README.md">README.md</a> file: </strong> <br> Provides details and explanations behind the web scraping and predictor model training process
         </li>  
       </ul>
     </td>
