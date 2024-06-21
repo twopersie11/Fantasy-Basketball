@@ -71,6 +71,30 @@ The NBA Fantasy Basketball Assistant is a full-stack AI application designed to 
   </tr>
 </table>
 
+```
+nba-fantasy-assistant/
+├── client/
+│   ├── public/
+│   ├── src/
+│   │   ├── components/
+│   │   │   ├── Header.js
+│   │   │   ├── Header.css
+│   │   │   ├── NavButton.js
+│   │   │   ├── NavButton.css
+│   │   ├── pages/
+│   │   │   ├── TeamPerformanceAnalysis.js
+│   │   │   ├── MatchupAnalyzer.js
+│   │   │   ├── FantasyRecommendations.js
+│   │   ├── App.js
+│   │   ├── App.css
+│   ├── package.json
+├── server/
+│   ├── server.js
+│   ├── package.json
+├── README.md
+├── LICENSE
+```
+
 ### Tech Stack:
 incoming
 
