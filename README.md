@@ -106,6 +106,7 @@ incoming
 
 ### Running the Application:
 <div align="left">
+
 #### Front-End
 1. Navigate to the `client` directory:
 
@@ -146,7 +147,7 @@ node server.js
 
 </div>
 
-**Open your browswer and go to `http://localhost:3000` to view the application.**
+**Open your browser and go to `http://localhost:3000` to view the application.**
 
 ***
 #### This project is [licensed](LICENSE) under the `MIT License`.
