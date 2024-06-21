@@ -101,6 +101,8 @@ nba-fantasy-assistant/
   
 </div>
 
+<br>
+
 ### Tech Stack:
 <div align="center">
 	<code><img width="50" src="https://user-images.githubusercontent.com/25181517/183914128-3fc88b4a-4ac1-40e6-9443-9a30182379b7.png" alt="Jupyter Notebook" title="Jupyter Notebook"/></code>
@@ -121,6 +123,8 @@ nba-fantasy-assistant/
 `Pandas`
 `Scikit-learn`
 `BeautifulSoup`
+
+<br>
 
 ### Running the Application:
 <div align="left">
