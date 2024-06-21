@@ -105,7 +105,45 @@ nba-fantasy-assistant/
 incoming
 
 ### Running the Application:
-incoming
+#### Front-End
+1. Navigate to the `client` directory:
+
+```
+cd client
+```
+
+2. Install dependencies:
+
+```
+npm install
+```
+
+3. Start the React App:
+
+```
+npm start
+```
+
+#### Back-End
+1. Navigate to the `server` directory:
+
+```
+cd server
+```
+
+2. Install dependencies:
+
+```
+npm install
+```
+
+2. Start the server:
+
+```
+node server.js
+```
+
+***Open your browswer and go to `http://localhost:3000` to view the application.***
 
 ***
 #### This project is [licensed](LICENSE) under the `MIT License`.
