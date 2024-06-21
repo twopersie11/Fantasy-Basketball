@@ -105,6 +105,7 @@ nba-fantasy-assistant/
 incoming
 
 ### Running the Application:
+<div align="left">
 #### Front-End
 1. Navigate to the `client` directory:
 
@@ -143,7 +144,9 @@ npm install
 node server.js
 ```
 
-***Open your browswer and go to `http://localhost:3000` to view the application.***
+</div>
+
+**Open your browswer and go to `http://localhost:3000` to view the application.**
 
 ***
 #### This project is [licensed](LICENSE) under the `MIT License`.
