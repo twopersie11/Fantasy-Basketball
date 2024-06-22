@@ -86,6 +86,7 @@ nba-fantasy-assistant/
 │   │   │   ├── NavButton.js
 │   │   │   ├── NavButton.css
 │   │   ├── pages/
+│   │   │   ├── Home.js
 │   │   │   ├── TeamPerformanceAnalysis.js
 │   │   │   ├── MatchupAnalyzer.js
 │   │   │   ├── FantasyRecommendations.js
