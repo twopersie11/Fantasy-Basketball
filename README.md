@@ -168,12 +168,12 @@ npm install
 2. Start the server:
 
 ```
-node server.js
+node index.js
 ```
 
 </div>
 
-**Open your browser and go to `http://localhost:3000` to view the application.**
+**Open your browser and go to `http://localhost:4000` to view the application.**
 
 ***
 #### This project is [licensed](LICENSE) under the `MIT License`.
