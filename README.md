@@ -128,6 +128,9 @@ nba-fantasy-assistant/
 <br>
 
 ### Running the Application:
+
+Main Directory Command: `cd NBA-Fantasy-Assistant`
+
 <div align="left">
 
 #### Front-End
