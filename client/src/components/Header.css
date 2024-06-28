@@ -1,0 +1,10 @@
+/* client/src/components/Header.css */
+header {
+    background-color: black;
+    color: white;
+    padding: 20px;
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
+  }
+  

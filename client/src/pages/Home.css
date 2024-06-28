@@ -1,0 +1,32 @@
+.App {
+    text-align: center;
+  }
+  
+  div {
+    text-align: center;
+    background-color: #dfe8e8;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+  }
+  
+  /* Make the image fit the container */
+  .nbalogo {
+    width: 75%;
+    height: 100%;
+  /*   object-fit: cover;
+    display: block;*/
+  }
+  
+  .main-buttons {
+    width: 24%;
+    margin-left: 3%;
+    margin-right: 3%;
+    object-fit: cover;
+    overflow: hidden;
+  }
+  
+  .main-buttons:hover {
+    filter: brightness(200%);
+    transition: 0.5s;
+  }

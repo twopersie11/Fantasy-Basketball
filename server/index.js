@@ -10,5 +10,23 @@ app.get('/api/data', (req,res) => {
     })
 })
 
+app.get('/kobe', (req, res) => {
+    res.json({
+        data: "Kobe Bryant's performance data"
+    });
+});
+
+app.get('/michael', (req, res) => {
+    res.json({
+        data: "Michael Jordan's performance data"
+    });
+});
+
+app.get('/lebron', (req, res) => {
+    res.json({
+        data: "Lebron James' performance data"
+    });
+});
+
 const PORT = 4000;
 app.listen(PORT, () => console.log(`Server is running on port ${PORT}`))
