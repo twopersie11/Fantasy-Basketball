@@ -36,6 +36,8 @@ The NBA Fantasy Basketball Assistant is a full-stack AI application designed to 
 ***
 ## Project Details
 
+<br>
+
 ### Noteworthy Files:
 <table>
   <tr>
@@ -70,6 +72,8 @@ The NBA Fantasy Basketball Assistant is a full-stack AI application designed to 
     </td>
   </tr>
 </table>
+
+<br>
 
 ### Full Directory Tree:
 
