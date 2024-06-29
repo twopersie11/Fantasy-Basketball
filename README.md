@@ -44,7 +44,7 @@ This project is designed for continuous enhancement and improvement. Therefore, 
 | Component    | Progress |
 | -------- | ------- |
 | Front-end User Interface | ⚠️ In Progress|
-| Machine Learning Prediction Model | ✅ Initial model complete with 62% accuracy <br> ⚠️ Working to improve current accuracy|
+| Machine Learning Prediction Model | ✅ Initial model complete with 63% accuracy <br> ⚠️ Working to improve current accuracy|
 | Intregation of ML Prediction Results with Server | ❌ Not Started |
 
 <br>
