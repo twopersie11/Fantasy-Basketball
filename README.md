@@ -14,6 +14,7 @@
 
 <div align = "left">
 The NBA Fantasy Basketball Assistant is a full-stack AI application designed to provide in-depth analysis and actionable insights for fantasy basketball enthusiasts. Leveraging detailed NBA game statistics, this tool aims to enhance users' decision-making by predicting team performances, analyzing matchups, and offering personalized recommendations.
+
 </div>
 
 ## Core Features
@@ -35,6 +36,16 @@ The NBA Fantasy Basketball Assistant is a full-stack AI application designed to 
 
 ***
 ## Project Details
+
+### Development Progress:
+	
+This project is designed for continuous enhancement and improvement. Therefore, a chart has been added to track the development and completion progress of each project element, highlighting the future updates I plan to implement for improvement.
+
+| Component    | Progress |
+| -------- | ------- |
+| Front-end User Interface | ⚠️ In Progress|
+| Machine Learning Prediction Model | ✅ Initial model complete with 62% accuracy <br> ⚠️ Working to improve current accuracy|
+| Intregation of ML Prediction Results with Server | ❌ Not Started |
 
 <br>
 
@@ -179,7 +190,7 @@ node index.js
 
 </div>
 
-**Open your browser and go to `http://localhost:4000` to view the application.**
+**Open your browser and go to `http://localhost:3000` to view the application.**
 
 ***
 #### This project is [licensed](LICENSE) under the `MIT License`.
