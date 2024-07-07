@@ -92,28 +92,41 @@ This project is designed for continuous enhancement and improvement. Therefore, 
 
 ```
 nba-fantasy-assistant/
-├── ml-model/
+├── ML-model/
 │   ├── README.md
+│   ├── Create_NBADataset.ipynb   # Code for creating CSVs (Jupyter Notebook)
+│   ├── Retrieve_NBAData.ipynb    # Web Scraping Code (Jupyter Notebook)
+│   ├── nba_data/
+│   │   ├── .ipynb_checkpoints/
+│   │   ├── scores/               # All individual box scores across seasons
+│   │   ├── standings/            # All standings (by month) across seasons
+│   │   ├── ...                   # Other miscellaneous csv files
 ├── client/
 │   ├── public/
 │   ├── src/
 │   │   ├── components/
-│   │   │   ├── Header.js
+│   │   │   ├── Form.css
 │   │   │   ├── Header.css
-│   │   │   ├── NavButton.js
+│   │   │   ├── Modal.css
+│   │   │   ├── Modal.js
 │   │   │   ├── NavButton.css
+│   │   │   ├── NavButton.js
+│   │   ├── images/               # All images used for app
 │   │   ├── pages/
-│   │   │   ├── Home.js
+│   │   │   ├── Home.js           # Main (Home) Page
+│   │   │   ├── Home.css
 │   │   │   ├── TeamPerformanceAnalysis.js
 │   │   │   ├── MatchupAnalyzer.js
 │   │   │   ├── FantasyRecommendations.js
 │   │   ├── App.js
-│   │   ├── App.css
+│   │   ├── index.js
+│   │   ├── index.css
 │   ├── package.json
+│   ├── README.md                # React App Explanation  
 ├── server/
-│   ├── server.js
+│   ├── index.js
 │   ├── package.json
-├── README.md
+├── README.md                    # Main Project File README
 ├── LICENSE
 ```
   
