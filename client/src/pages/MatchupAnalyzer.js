@@ -20,7 +20,7 @@ function MatchupAnalyzer() {
       </header>
 
       <div>
-          <NavButton path="/" label="Back" />
+          <NavButton path="/" label="⇦   Return to Home" />
       </div>
 
       {/* Render the data correctly */}

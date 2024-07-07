@@ -20,9 +20,12 @@ function FantasyRecommendations() {
       </header>
 
       <div>
-          <NavButton path="/" label="Back" />
+          <NavButton path="/" label="⇦   Return to Home" />
       </div>
 
+      <section>
+        <h2>Historical Data Insights</h2>
+      </section>
       {/* Render the data correctly */}
       {data.data && <p>{data.data}</p>}
     </div>
