@@ -58,6 +58,8 @@ function TeamPerformanceAnalysis() {
         <div className = "inner">
           
         <h2>ENTER A TEAM</h2>
+        <p style={{fontSize: "80%"}}>→ Analyze historical data over the last nine seasons to predict future team performances 
+          <br /> → Identify rolling averages of key statistics over recent games to determine current form and identify trends</p>
         <hr />
         <form onSubmit={handleSubmit}>
           <input
