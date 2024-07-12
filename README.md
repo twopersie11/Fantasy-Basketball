@@ -45,7 +45,7 @@ This project is designed for continuous enhancement and improvement. Therefore, 
 | -------- | ------- |
 | App Interface (Full-Stack) | ✅ Completed UI/UX Design Implementation <br> ✅ Client successfully displays and interacts with server data <br> ✅ Seamlessly implements dynamic internal page changes |
 | Machine Learning Prediction Model | ✅ Initial model complete with 63% accuracy <br> ⚠️ Working to improve current accuracy|
-| Integration of ML Results and Pandas Manipulation with Server | ⚠️ In Progress |
+| Integration of ML Results and Pandas Manipulation Data with Server | ⚠️ In Progress |
 
 <br>
 
