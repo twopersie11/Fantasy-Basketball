@@ -17,7 +17,7 @@ Using both technical research and my knowledge of the game, I decided to keep th
 - **Player Mobility**: Greater player movement through free agency and trades, leading to the formation of super teams and significant shifts in team dynamics.
 - **Rule Changes**: Various rule changes aimed at increasing the pace of the game and scoring.
 
-Refer to the [`NBA_DataScraping.ipynb`]() file for my web data scraping process.
-
 ***
 ## Machine Learning Model Training:
+
+As of now, my base model has an accuracy of 63% using data from over 23,000+ games. My next steps to increase accuracy are: (1) use xgboost and/or random forest classifier, which is generally more powerful than ridge regression, (2) experiment with the different feature numbers, (3) utilize the backwards feature selector rather than forward
