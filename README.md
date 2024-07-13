@@ -96,6 +96,7 @@ nba-fantasy-assistant/
 │   ├── README.md
 │   ├── Create_NBADataset.ipynb   # Code for creating CSVs (Jupyter Notebook)
 │   ├── Retrieve_NBAData.ipynb    # Web Scraping Code (Jupyter Notebook)
+│   ├── NBA_PredictionModel1.ipynb # Base ML Model
 │   ├── nba_data/
 │   │   ├── .ipynb_checkpoints/
 │   │   ├── scores/               # All individual box scores across seasons
