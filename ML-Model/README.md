@@ -20,4 +20,7 @@ Using both technical research and my knowledge of the game, I decided to keep th
 ***
 ## Machine Learning Model Training:
 
-As of now, my base model has an accuracy of 63% using data from over 23,000+ games. My next steps to increase accuracy are: (1) use xgboost and/or random forest classifier, which is generally more powerful than ridge regression, (2) experiment with the different feature numbers, (3) utilize the backwards feature selector rather than forward
+As of now, my base model has an accuracy of 63% using data from over 23,000+ games. My next steps to increase accuracy are: (1) use xgboost and/or random forest classifier, which is generally more powerful than ridge regression, (2) experiment with the different feature numbers, (3) utilize the backwards feature selector rather than forward.
+***
+
+I would like to credit Dataquest on YouTube for ML and web-scraping related lessons, which helped me gain a better understanding of developing the model.
