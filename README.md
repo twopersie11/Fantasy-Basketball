@@ -67,7 +67,7 @@ This project is designed for continuous enhancement and improvement. Therefore, 
     <td>
       <ul>
         <li>
-          incoming
+          <strong>Client <a href = "client/README.md">README.md</a> file: </strong> <br> Provides details on navigating and utilizing the React App
         </li>  
       </ul>
     </td>
