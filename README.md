@@ -49,7 +49,7 @@ This project is designed for continuous enhancement and improvement. Therefore, 
 
 <br>
 
-### Noteworthy Files:
+### Noteworthy Description Files:
 <table>
   <tr>
     <th>ML-Model</th>
@@ -68,16 +68,6 @@ This project is designed for continuous enhancement and improvement. Therefore, 
       <ul>
         <li>
           <strong>Client <a href = "client/README.md">README.md</a> file: </strong> <br> Provides details on navigating and utilizing the React App
-        </li>  
-      </ul>
-    </td>
-  </tr>
-  <tr>
-    <th>Server</th>
-    <td>
-      <ul>
-        <li>
-          incoming
         </li>  
       </ul>
     </td>
