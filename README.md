@@ -45,12 +45,12 @@ This project is designed for continuous enhancement and improvement. Therefore, 
 | Component    | Progress |
 | -------- | ------- |
 | App Interface (Full-Stack) | ✅ Completed UI/UX Design Implementation <br> ✅ Client successfully displays and interacts with server mock data <br> ✅ Seamlessly implements dynamic internal page changes |
-| Machine Learning Prediction Model | ✅ Initial model complete with 63% accuracy <br> ⚠️ Working to improve current accuracy|
+| Machine Learning Prediction Model | ✅ Initial model complete with 63% accuracy <br> ⚠️ Working to [improve current accuracy](https://github.com/naishasinha/Fantasy-Basketball/issues/1) |
 | Integration of ML Results and Pandas Manipulation Data with Server | ⚠️ In Progress |
 
 | 📅 **Current Task** 📅 |
 | -------- |
-| Develop a JSON file that generates up-to-date performance and matchup analysis based on the mock data format |
+| Develop a JSON file that generates up-to-date performance and matchup analysis based on the mock data format. |
 
 <br>
 
