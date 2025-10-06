@@ -1,22 +1,157 @@
 .team-input {
-    padding: 8px;
-    margin-right: 10px;
-    width: 300px;
-    font-size: 16px; /* Increase font size for input */
-    border-color: black;
-    text-align: center;
-  }
-
-.inner {
-    background-color: white;
-    border: 5px solid black;
-    background-image: url('../images/bball-court.png');
-    background-size: cover;
-    position: relative;
-    width: 65%;
-    margin:auto;
-    padding: 4%;
-    font-size: 120%;
+  padding: 0.75rem 1rem;
+  margin-right: 10px;
+  width: clamp(240px, 60vw, 320px);
+  font-size: 1rem;
+  border: 2px solid #0f172a;
+  border-radius: 10px;
+  background: #f8fafc;
+  color: #0f172a;
+  text-align: left;
+  font-weight: 600;
+  transition: box-shadow 0.3s ease, transform 0.2s ease;
 }
 
+.team-input:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.35);
+  transform: translateY(-2px);
+}
 
+.inner {
+  background: rgba(248, 250, 252, 0.96);
+  border: 2px solid rgba(15, 23, 42, 0.9);
+  border-radius: 18px;
+  width: min(720px, 92vw);
+  margin: auto;
+  padding: 2.75rem clamp(1.25rem, 4vw, 3rem);
+  font-size: 1.05rem;
+  color: #0f172a;
+  box-shadow: 0 26px 60px rgba(15, 23, 42, 0.28);
+  backdrop-filter: blur(4px);
+}
+
+.submit {
+  padding: 0.75rem 1.75rem;
+  background: linear-gradient(135deg, #2563eb, #7c3aed);
+  color: #fff;
+  border: none;
+  border-radius: 999px;
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  cursor: pointer;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.submit:disabled {
+  cursor: progress;
+  filter: grayscale(0.4);
+  opacity: 0.75;
+}
+
+.submit:not(:disabled):hover {
+  transform: translateY(-3px) scale(1.01);
+  box-shadow: 0 18px 32px rgba(37, 99, 235, 0.35);
+}
+
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1rem;
+  margin: 1.5rem auto;
+}
+
+.card {
+  background: #ffffff;
+  border-radius: 14px;
+  padding: 1.1rem 1.25rem;
+  border: 1px solid rgba(148, 163, 184, 0.55);
+  box-shadow: 0 16px 30px rgba(15, 23, 42, 0.12);
+  text-align: left;
+  color: #0f172a;
+}
+
+.card-title {
+  margin: 0;
+  font-size: 1rem;
+  text-transform: capitalize;
+  font-weight: 700;
+}
+
+.card-subtitle {
+  margin: 0.35rem 0 0.5rem;
+  font-weight: 600;
+  color: #475569;
+}
+
+.card-metric {
+  font-size: 1.45rem;
+  font-weight: 800;
+  color: #1e293b;
+}
+
+.card-note {
+  margin-top: 0.4rem;
+  line-height: 1.45;
+  font-size: 0.95rem;
+  color: #334155;
+}
+
+.insights-list {
+  text-align: left;
+  list-style: disc;
+  margin: 1.5rem auto;
+  padding-left: 1.5rem;
+  max-width: 90%;
+  color: #1f2937;
+  line-height: 1.65;
+}
+
+.table-wrapper {
+  overflow-x: auto;
+  margin: 1.25rem auto 1.75rem;
+}
+
+.table-wrapper table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #fff;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 14px 24px rgba(15, 23, 42, 0.12);
+}
+
+.table-wrapper th,
+.table-wrapper td {
+  padding: 0.85rem 1rem;
+  border-bottom: 1px solid rgba(148, 163, 184, 0.4);
+  text-align: left;
+}
+
+.table-wrapper thead {
+  background: linear-gradient(135deg, rgba(59, 130, 246, 0.15), rgba(76, 29, 149, 0.15));
+}
+
+.table-wrapper tbody tr:nth-child(even) {
+  background: rgba(241, 245, 249, 0.6);
+}
+
+.table-wrapper tbody tr:last-child td {
+  border-bottom: none;
+}
+
+@media (max-width: 640px) {
+  .inner {
+    padding: 2rem 1.25rem;
+  }
+
+  .card-grid {
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  }
+
+  .table-wrapper th,
+  .table-wrapper td {
+    padding: 0.65rem 0.75rem;
+  }
+}

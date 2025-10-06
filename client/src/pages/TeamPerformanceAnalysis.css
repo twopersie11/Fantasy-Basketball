@@ -1,7 +1,58 @@
-div {
-    background-color: black;
+.team-performance-page {
+  min-height: 100vh;
+  width: 100%;
+  background: radial-gradient(circle at top left, #0f172a 0%, #020617 70%, #00040d 100%);
+  color: #f8fafc;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-bottom: 4rem;
 }
 
-.team-performance-container{
-    background-color:black;
+.team-performance-page .page-header {
+  background: transparent !important;
+  border: none;
+  padding: 2.5rem 1.5rem 1rem;
+}
+
+.team-performance-page .page-content {
+  width: min(960px, 92vw);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.helper-text {
+  font-size: 0.9rem;
+  color: #1f2937;
+  margin-bottom: 1.5rem;
+  line-height: 1.6;
+}
+
+.form-grid {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.error {
+  color: #ef4444;
+  font-weight: 600;
+  margin-top: 1rem;
+}
+
+.modal-subtitle {
+  font-size: 0.95rem;
+  color: #1f2937;
+  margin-top: -0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+@media (min-width: 640px) {
+  .form-grid {
+    flex-direction: row;
+    justify-content: center;
+  }
 }

@@ -1,199 +1,273 @@
-
-
-// client/src/pages/TeamPerformanceAnalysis.js
-import React, { useEffect, useState } from 'react';
+// client/src/pages/MatchupAnalyzer.js
+import React, { useEffect, useMemo, useState } from 'react';
+import {
+  Chart as ChartJS,
+  CategoryScale,
+  LinearScale,
+  BarElement,
+  Title,
+  Tooltip,
+  Legend,
+} from 'chart.js';
 import { Bar } from 'react-chartjs-2';
 import NavButton from '../components/NavButton';
-import logo from '../images/ma.png'
+import logo from '../images/ma.png';
 import Modal from '../components/Modal.js';
+import '../components/Header.css';
+import '../components/Form.css';
+import './MatchupAnalyzer.css';
+import { getMatchup, getTeams } from '../services/api';
+
+ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend);
 
 function MatchupAnalyzer() {
-  const [team1, setTeam1] = useState('');
-  const [team2, setTeam2] = useState('');
-  const [data, setData] = useState({});
+  const [teams, setTeams] = useState([]);
+  const [teamOne, setTeamOne] = useState('');
+  const [teamTwo, setTeamTwo] = useState('');
+  const [matchupData, setMatchupData] = useState(null);
   const [error, setError] = useState('');
   const [showModal, setShowModal] = useState(false);
+  const [loadingTeams, setLoadingTeams] = useState(false);
+  const [loadingMatchup, setLoadingMatchup] = useState(false);
 
-  const fetchMatchupData = (team1, team2) => {
-    const encodedTeam1 = encodeURIComponent(team1.trim());
-    const encodedTeam2 = encodeURIComponent(team2.trim());
-    console.log('Team 1: ', encodedTeam1);
-    console.log('Team 2: ', encodedTeam2);
-
-    fetch(`http://localhost:4000/api/matchup/${encodedTeam1}/${encodedTeam2}`)
-      .then(response => {
-        console.log(response.ok);
-        console.log('Response', response);
-        if (!response.ok) {
-          throw new Error(`Network response was not ok: ${response.statusText}`);
+  useEffect(() => {
+    const initialiseTeams = async () => {
+      setLoadingTeams(true);
+      try {
+        const fetchedTeams = await getTeams();
+        setTeams(fetchedTeams);
+        if (fetchedTeams.length >= 2) {
+          setTeamOne(fetchedTeams[0].name);
+          setTeamTwo(fetchedTeams[1].name);
         }
-        return response.json();
-      })
-      .then(data => {
-        console.log("Data fetched for TeamPerformanceAnalysis: ", data);
-        setData(data);
-        setError('');
-        setShowModal(true);
-      })
-      .catch(error => {
-        console.error('Error fetching data:', error);
-        setError('Error fetching data. Please try again.');
-      });
+      } catch (err) {
+        console.error('Unable to load teams', err);
+        setError('Takım listesi yüklenemedi. Lütfen daha sonra tekrar deneyin.');
+      } finally {
+        setLoadingTeams(false);
+      }
+    };
+
+    initialiseTeams();
+  }, []);
+
+  const loadMatchup = async () => {
+    if (!teamOne || !teamTwo) {
+      setError('İki takım seçmelisiniz.');
+      return;
+    }
+
+    if (teamOne === teamTwo) {
+      setError('Lütfen iki farklı takım seçin.');
+      return;
+    }
+
+    setLoadingMatchup(true);
+    try {
+      const data = await getMatchup(teamOne, teamTwo);
+      setMatchupData(data);
+      setError('');
+      setShowModal(true);
+    } catch (err) {
+      console.error('Error fetching matchup data', err);
+      setError('Seçilen takımlar için eşleşme verisi bulunamadı.');
+    } finally {
+      setLoadingMatchup(false);
+    }
   };
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
-    fetchMatchupData(team1, team2);
+    await loadMatchup();
   };
 
   const handleCloseModal = () => {
-    setShowModal(false); // Hide modal when close button is clicked
+    setShowModal(false);
   };
 
-  // const renderChart = (team1Data, team2Data) => {
-  //   const data = {
-  //     labels: ['Team 1', 'Team 2'],
-  //     datasets: [
-  //       {
-  //         label: 'Average Points',
-  //         data: [team1Data.avgPoints, team2Data.avgPoints],
-  //         backgroundColor: ['rgba(75, 192, 192, 0.2)', 'rgba(153, 102, 255, 0.2)'],
-  //         borderColor: ['rgba(75, 192, 192, 1)', 'rgba(153, 102, 255, 1)'],
-  //         borderWidth: 1,
-  //       },
-  //     ],
-  //   };
+  const chartData = useMemo(() => {
+    if (!matchupData) {
+      return null;
+    }
 
-  //   const options = {
-  //     scales: {
-  //       y: {
-  //         beginAtZero: true,
-  //       },
-  //     },
-  //   };
+    const { matchup } = matchupData;
+    return {
+      labels: [teamOne, teamTwo],
+      datasets: [
+        {
+          label: 'Average Points',
+          data: [matchup.team1VsTeam2.avgPoints, matchup.team2VsTeam1.avgPoints],
+          backgroundColor: ['rgba(59, 130, 246, 0.6)', 'rgba(249, 115, 22, 0.6)'],
+          borderColor: ['rgba(59, 130, 246, 1)', 'rgba(249, 115, 22, 1)'],
+          borderWidth: 1,
+        },
+      ],
+    };
+  }, [matchupData, teamOne, teamTwo]);
 
-  //   return <Bar data={data} options={options} />;
-  // };
+  const chartOptions = useMemo(
+    () => ({
+      responsive: true,
+      plugins: {
+        legend: { display: false },
+        title: {
+          display: true,
+          text: 'Average Points Scored vs. Opponent',
+          color: '#0f172a',
+          font: { size: 16, weight: 'bold' },
+        },
+      },
+      scales: {
+        y: {
+          beginAtZero: true,
+          ticks: { color: '#0f172a' },
+          grid: { color: 'rgba(148, 163, 184, 0.35)' },
+        },
+        x: {
+          ticks: { color: '#0f172a' },
+          grid: { display: false },
+        },
+      },
+    }),
+    [],
+  );
 
   return (
-    <div>
-      <header>
-        <img src={logo} alt="NBALogo" className="nbalogo" />
+    <div className="matchup-page">
+      <header className="page-header">
+        <img src={logo} alt="Matchup analyzer" className="nbalogo" />
       </header>
 
-      <div>
-        <NavButton path="/" label="⇦   Return to Home" className="backbutton"/>
+      <div className="page-content">
+        <NavButton path="/" label="⇦   Return to Home" className="backbutton" />
 
-        <div className = "inner">
-          
-        <h2>ENTER TWO TEAMS TO COMPARE</h2>
-        <p style={{fontSize: "80%"}}>→ Analyze historical matchups between teams to evaluate matchup outcomes
-        <br /> → Highlight performance trends against specific types of opponent specialities</p>
-        <hr />
-        <form onSubmit={handleSubmit}>
-          <input
-            type="text"
-            placeholder="Team 1: [City] [Team]"
-            value={team1}
-            onChange={(e) => setTeam1(e.target.value)}
-            className="team-input"
-          />
-          <input 
-            type="text"
-            placeholder="Team 2: [City] [Team]"
-            value={team2}
-            onChange={(e) => setTeam2(e.target.value)}
-            className="team-input"
-          />
-          <p>
-          <strong>Format:</strong> [City] [Team] <br />
-          <strong>Example: </strong> New York Knicks</p>
-          <button type="submit" className="submit" label = "Submit" style={{margin: '1px'}}>Submit</button>
-        </form>
+        <div className="inner">
+          <h2>COMPARE TWO TEAMS</h2>
+          <p className="helper-text">
+            → Analyze historical matchups to understand head-to-head trends.
+            <br /> → Highlight pace, key factors, and recent game results to guide your decision making.
+          </p>
+          <hr />
+          <form onSubmit={handleSubmit} className="form-grid">
+            <select
+              value={teamOne}
+              onChange={(event) => setTeamOne(event.target.value)}
+              className="team-input"
+              disabled={loadingTeams}
+            >
+              {teams.map((team) => (
+                <option key={`team-one-${team.code}`} value={team.name}>
+                  {team.name}
+                </option>
+              ))}
+            </select>
+            <select
+              value={teamTwo}
+              onChange={(event) => setTeamTwo(event.target.value)}
+              className="team-input"
+              disabled={loadingTeams}
+            >
+              {teams.map((team) => (
+                <option key={`team-two-${team.code}`} value={team.name}>
+                  {team.name}
+                </option>
+              ))}
+            </select>
+            <button type="submit" className="submit" disabled={loadingMatchup || loadingTeams}>
+              {loadingMatchup ? 'Analyzing…' : 'Analyze Matchup'}
+            </button>
+          </form>
 
+          {error && <p className="error">{error}</p>}
         </div>
 
-
-        {error && <p className="error">{error}</p>}
-        
         <Modal show={showModal} handleClose={handleCloseModal}>
-          {data.team1 && data.team2 && data.matchup && (
-            <div className = "mainPage">
-              <h1>{team1} v. {team2}</h1>
+          {matchupData && (
+            <div className="mainPage">
+              <h1>
+                {teamOne} vs. {teamTwo}
+              </h1>
+              <p className="modal-subtitle">
+                Pace: {matchupData.matchup.pace} possessions · {matchupData.matchup.summary}
+              </p>
               <hr />
-              <p>Scroll through this module to see the matchup between {team1} and {team2}.</p>
-              <hr />
-                <h3>WIN/LOSS RECORD</h3>
-                <table>
-                  <thead>
-                    <tr>
-                      <th>Team</th>
-                      <th>Wins</th>
-                      <th>Losses</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td>{team1}</td>
-                      <td>{data.matchup.team1VsTeam2.wins}</td>
-                      <td>{data.matchup.team1VsTeam2.losses}</td>
-                    </tr>
-                    <tr>
-                      <td>{team2}</td>
-                      <td>{data.matchup.team2VsTeam1.wins}</td>
-                      <td>{data.matchup.team2VsTeam1.losses}</td>
-                    </tr>
-                  </tbody>
-                </table>
-                <hr />
-                <h3>AVERAGE POINTS SCORED</h3>
-                {/*{renderChart(data.matchup.team1VsTeam2, data.matchup.team2VsTeam1)}*/}
+              <section className="metrics-section">
+                <div className="card-grid">
+                  <div className="card">
+                    <h4 className="card-title">{teamOne} Record</h4>
+                    <p className="card-note">
+                      {matchupData.matchup.team1VsTeam2.wins}W — {matchupData.matchup.team1VsTeam2.losses}L
+                    </p>
+                    <p className="card-metric">{matchupData.matchup.team1VsTeam2.avgPoints} PPG</p>
+                    <p className="card-note">
+                      Off Rating: {matchupData.matchup.team1VsTeam2.offensiveRating}
+                      <br />Def Rating: {matchupData.matchup.team1VsTeam2.defensiveRating}
+                      <br />Rebound Margin: {matchupData.matchup.team1VsTeam2.reboundMargin}
+                    </p>
+                  </div>
+                  <div className="card">
+                    <h4 className="card-title">{teamTwo} Record</h4>
+                    <p className="card-note">
+                      {matchupData.matchup.team2VsTeam1.wins}W — {matchupData.matchup.team2VsTeam1.losses}L
+                    </p>
+                    <p className="card-metric">{matchupData.matchup.team2VsTeam1.avgPoints} PPG</p>
+                    <p className="card-note">
+                      Off Rating: {matchupData.matchup.team2VsTeam1.offensiveRating}
+                      <br />Def Rating: {matchupData.matchup.team2VsTeam1.defensiveRating}
+                      <br />Rebound Margin: {matchupData.matchup.team2VsTeam1.reboundMargin}
+                    </p>
+                  </div>
+                </div>
+              </section>
 
-                <h3>Performance Trends Against Specific Opponents</h3>
-                <h5>Against Defensive Teams</h5>
-                <table>
-                  <thead>
-                    <tr>
-                      <th>Team</th>
-                      <th>Wins</th>
-                      <th>Losses</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td>{team1}</td>
-                      <td>{data.team1.performanceData[0].wins}</td>
-                      <td>{data.team1.performanceData[0].losses}</td>
-                    </tr>
-                    <tr>
-                      <td>{team2}</td>
-                      <td>{data.team2.performanceData[0].wins}</td>
-                      <td>{data.team2.performanceData[0].losses}</td>
-                    </tr>
-                  </tbody>
-                </table>
-                <h5>Against Offensive Teams</h5>
-                <table>
-                  <thead>
-                    <tr>
-                      <th>Team</th>
-                      <th>Wins</th>
-                      <th>Losses</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td>{team1}</td>
-                      <td>{data.team1.performanceData[1].wins}</td>
-                      <td>{data.team1.performanceData[1].losses}</td>
-                    </tr>
-                    <tr>
-                      <td>{team2}</td>
-                      <td>{data.team2.performanceData[1].wins}</td>
-                      <td>{data.team2.performanceData[1].losses}</td>
-                    </tr>
-                  </tbody>
-                </table>
+              {chartData && (
+                <section>
+                  <div className="chart-wrapper">
+                    <Bar data={chartData} options={chartOptions} />
+                  </div>
+                </section>
+              )}
+
+              {matchupData.matchup.keyFactors?.length > 0 && (
+                <section>
+                  <h3>Key Factors</h3>
+                  <ul className="insights-list">
+                    {matchupData.matchup.keyFactors.map((factor, index) => (
+                      <li key={`${teamOne}-${teamTwo}-factor-${index}`}>{factor}</li>
+                    ))}
+                  </ul>
+                </section>
+              )}
+
+              {matchupData.matchup.recentGames?.length > 0 && (
+                <section>
+                  <h3>Recent Meetings</h3>
+                  <div className="table-wrapper">
+                    <table>
+                      <thead>
+                        <tr>
+                          <th>Date</th>
+                          <th>Venue</th>
+                          <th>Winner</th>
+                          <th>{teamOne} Points</th>
+                          <th>{teamTwo} Points</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        {matchupData.matchup.recentGames.map((game) => (
+                          <tr key={`${game.date}-${game.venue}`}>
+                            <td>{game.date}</td>
+                            <td>{game.venue}</td>
+                            <td>{game.winner}</td>
+                            <td>{game.team1Points}</td>
+                            <td>{game.team2Points}</td>
+                          </tr>
+                        ))}
+                      </tbody>
+                    </table>
+                  </div>
+                </section>
+              )}
             </div>
           )}
         </Modal>
@@ -203,4 +277,3 @@ function MatchupAnalyzer() {
 }
 
 export default MatchupAnalyzer;
-

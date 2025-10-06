@@ -1,0 +1,48 @@
+.fantasy-page {
+  min-height: 100vh;
+  width: 100%;
+  background: radial-gradient(circle at bottom left, #0b1120 0%, #020617 60%, #00040d 100%);
+  color: #f8fafc;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-bottom: 4rem;
+}
+
+.fantasy-page .page-header {
+  background: transparent !important;
+  padding: 2.5rem 1.5rem 1rem;
+}
+
+.fantasy-page .page-content {
+  width: min(960px, 92vw);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.option-description {
+  margin-top: 1rem;
+  font-size: 0.95rem;
+  color: #1f2937;
+  line-height: 1.6;
+}
+
+.results-panel {
+  margin-top: 1.5rem;
+}
+
+.results-panel h2 {
+  margin-bottom: 0.5rem;
+}
+
+.grid-section .card {
+  min-height: 260px;
+}
+
+@media (max-width: 768px) {
+  .grid-section .card {
+    min-height: auto;
+  }
+}
