@@ -159,6 +159,24 @@ Main Directory Command: `cd NBA-Fantasy-Assistant`
 
 <div align="left">
 
+### Installing dependencies with the consolidated requirements file
+
+If you prefer using the single `requirements.txt` file that lists both the
+client and server JavaScript packages, run the helper script from the project
+root:
+
+```
+python install_requirements.py
+```
+
+This installs the client and server dependencies with `npm`. You can choose a
+different package manager with the `--package-manager` flag, for example
+`python install_requirements.py --package-manager yarn`. Add `--dry-run` to see
+the commands without executing them.
+
+You can still install dependencies manually inside each directory using the
+instructions below.
+
 #### Front-End
 1. Navigate to the `client` directory:
 
