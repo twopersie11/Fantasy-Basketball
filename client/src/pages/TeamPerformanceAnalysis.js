@@ -6,7 +6,7 @@ import NavButton from '../components/NavButton';
 import '../components/Form.css';
 import logo from '../images/tpa.png';
 import Modal from '../components/Modal.js';
-import { getTeams, getTeamDetails } from '../services/api';
+import { getTeamDetails } from '../services/api';
 
 function TeamPerformanceAnalysis() {
   const [teams, setTeams] = useState([]);
@@ -43,16 +43,25 @@ function TeamPerformanceAnalysis() {
     const initialiseTeams = async () => {
       setLoadingTeams(true);
       try {
-        const fetchedTeams = await getTeams();
+        const response = await fetch('/api/teams', { credentials: 'include' });
+        if (!response.ok) {
+          throw new Error(`Failed to fetch teams: ${response.status}`);
+        }
+
+        const fetchedTeams = await response.json();
         setTeams(fetchedTeams);
         if (fetchedTeams.length > 0) {
           const defaultTeam = fetchedTeams[0].name;
           setSelectedTeam(defaultTeam);
           await loadTeamDetails(defaultTeam, { openModal: true });
         }
+        setError('');
       } catch (err) {
         console.error('Unable to load teams', err);
-        setError('Takım listesi yüklenemedi. Lütfen sayfayı yenileyin.');
+        setTeams([]);
+        setSelectedTeam('');
+        setTeamData(null);
+        setError('Takım listesi yüklenemedi. Tekrar Dene.');
       } finally {
         setLoadingTeams(false);
       }

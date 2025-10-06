@@ -3,12 +3,8 @@ import axios from 'axios';
 const apiClient = axios.create({
   baseURL: '/api',
   timeout: 8000,
+  withCredentials: true,
 });
-
-export const getTeams = async () => {
-  const { data } = await apiClient.get('/teams');
-  return data;
-};
 
 export const getTeamDetails = async (teamName) => {
   const { data } = await apiClient.get(`/teams/${encodeURIComponent(teamName)}`);

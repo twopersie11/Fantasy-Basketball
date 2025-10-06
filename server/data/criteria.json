@@ -1,0 +1,17 @@
+[
+  {
+    "value": "lineup",
+    "label": "Optimal Lineup Suggestions",
+    "description": "Build a high-upside weekly lineup using pace, usage, and opponent matchup data."
+  },
+  {
+    "value": "trades",
+    "label": "Trading/Free Agency Advice",
+    "description": "Identify buy-low, sell-high, and waiver-wire opportunities based on trend analysis."
+  },
+  {
+    "value": "sleepers",
+    "label": "High-Value Sleepers & Injury Watch",
+    "description": "Monitor emerging contributors and injury pivots to stay ahead of the waiver wire."
+  }
+]

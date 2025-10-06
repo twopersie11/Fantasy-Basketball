@@ -16,7 +16,7 @@ import Modal from '../components/Modal.js';
 import '../components/Header.css';
 import '../components/Form.css';
 import './MatchupAnalyzer.css';
-import { getMatchup, getTeams } from '../services/api';
+import { getMatchup } from '../services/api';
 
 ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend);
 
@@ -34,15 +34,24 @@ function MatchupAnalyzer() {
     const initialiseTeams = async () => {
       setLoadingTeams(true);
       try {
-        const fetchedTeams = await getTeams();
+        const response = await fetch('/api/teams', { credentials: 'include' });
+        if (!response.ok) {
+          throw new Error(`Failed to fetch teams: ${response.status}`);
+        }
+
+        const fetchedTeams = await response.json();
         setTeams(fetchedTeams);
         if (fetchedTeams.length >= 2) {
           setTeamOne(fetchedTeams[0].name);
           setTeamTwo(fetchedTeams[1].name);
         }
+        setError('');
       } catch (err) {
         console.error('Unable to load teams', err);
-        setError('Takım listesi yüklenemedi. Lütfen daha sonra tekrar deneyin.');
+        setTeams([]);
+        setTeamOne('');
+        setTeamTwo('');
+        setError('Takım listesi yüklenemedi. Tekrar Dene.');
       } finally {
         setLoadingTeams(false);
       }
@@ -63,6 +72,7 @@ function MatchupAnalyzer() {
     }
 
     setLoadingMatchup(true);
+    setError('');
     try {
       const data = await getMatchup(teamOne, teamTwo);
       setMatchupData(data);
