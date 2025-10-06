@@ -1,3 +1,5 @@
+require('dotenv').config();
+
 const path = require('path');
 const express = require('express');
 const cors = require('cors');
@@ -173,7 +175,7 @@ if (process.env.NODE_ENV === 'production') {
   });
 }
 
-const PORT = Number(process.env.PORT || 5000);
+const PORT = process.env.PORT || 5000;
 let yahooHealthInterval = null;
 
 const start = () => {
