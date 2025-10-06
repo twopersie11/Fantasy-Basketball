@@ -1,60 +1,118 @@
 /* client/src/components/Modal.css */
 .modal {
-    position: fixed;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
+  position: fixed;
+  inset: 0;
+  background-color: rgba(2, 6, 23, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  padding: 1.5rem;
+}
+
+.modal-main {
+  background: linear-gradient(145deg, #0f172a 0%, #111c33 45%, #0b1226 100%);
+  padding: clamp(1rem, 2vw, 1.75rem);
+  border-radius: 22px;
+  position: relative;
+  width: min(960px, 92vw);
+  max-height: 90vh;
+  overflow: hidden;
+  box-shadow: 0 38px 80px rgba(15, 23, 42, 0.55);
+  border: 1px solid rgba(148, 163, 184, 0.35);
+}
+
+.display-block {
+  display: flex;
+}
+
+.display-none {
+  display: none;
+}
+
+.close-button {
+  position: absolute;
+  font-size: 1.2rem;
+  top: 18px;
+  right: 18px;
+  background: rgba(15, 23, 42, 0.85);
+  color: #f8fafc;
+  border: none;
+  border-radius: 999px;
+  cursor: pointer;
+  padding: 0.4rem 0.75rem;
+  transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.close-button:hover {
+  transform: scale(1.05);
+  background: rgba(59, 130, 246, 0.9);
+}
 
 .mainPage {
-    width: 100%;
-    height: 100%;
-    margin: auto;
-    /*background-color: rgb(216, 210, 210);*/
-    background-color: #dfe8e8;
-    color: black;
-    overflow: scroll;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  background: rgba(248, 250, 252, 0.96);
+  color: #0f172a;
+  overflow-y: auto;
+  border-radius: 16px;
+  padding: clamp(1.5rem, 3vw, 2.25rem);
+  box-sizing: border-box;
+  line-height: 1.6;
 }
-  
-.modal-main {
-    background: black;
-    padding: 20px;
-    border-radius: 10px;
-    position: relative;
-    width: 60%;
-    height: 85%;
-    margin: auto;
-    margin-top: 3%;
-    /*max-width: 600px;*/
+
+.mainPage h1 {
+  margin-top: 0.25rem;
+  margin-bottom: 0.5rem;
+  font-size: clamp(1.75rem, 2.5vw, 2.35rem);
 }
-  
-  .display-block {
-    display: block;
+
+.mainPage h3 {
+  margin-top: 2rem;
+  margin-bottom: 0.75rem;
+  font-size: 1.1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #1f2937;
+}
+
+.mainPage h4 {
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+  font-size: 1rem;
+  color: #1f2937;
+}
+
+hr {
+  border: 0;
+  height: 1px;
+  background: rgba(15, 23, 42, 0.15);
+  width: 100%;
+  margin: 1.25rem 0 1.75rem;
+}
+
+@media (max-width: 768px) {
+  .modal {
+    padding: 1rem;
   }
-  
-  .display-none {
-    display: none;
+
+  .modal-main {
+    padding: 1rem;
   }
-  
+
   .close-button {
-    position: absolute;
-    font-size: 150%;
-    top: 20px;
-    right: 20px;
-    background: red;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    padding: 5px 10px;
+    top: 12px;
+    right: 12px;
   }
-  
-  table {
-    margin: auto;
-    border: 1px solid black;
-    padding: 1%;
+}
+
+@media (max-width: 480px) {
+  .modal {
+    padding: 0.5rem;
   }
+
+  .modal-main {
+    padding: 0.75rem;
+  }
+}

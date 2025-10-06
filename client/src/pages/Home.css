@@ -1,33 +1,65 @@
-.App {
-    text-align: center;
-    overflow: auto;
+.home-container {
+  min-height: 100vh;
+  width: 100%;
+  background: linear-gradient(135deg, #0f172a 0%, #1e293b 55%, #0b1120 100%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  color: #f8fafc;
+}
+
+.home-container .header {
+  background: transparent !important;
+  padding: 2rem 1rem 0;
+}
+
+.nbalogo {
+  width: min(320px, 75vw);
+  height: auto;
+}
+
+.nav-buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2.5rem;
+  flex-wrap: wrap;
+  margin-top: 3rem;
+  padding-bottom: 4rem;
+  width: min(960px, 90vw);
+}
+
+.main-buttons {
+  width: clamp(180px, 24vw, 260px);
+  border-radius: 18px;
+  box-shadow: 0 20px 40px rgba(15, 23, 42, 0.45);
+  transition: transform 0.35s ease, box-shadow 0.35s ease, filter 0.35s ease;
+}
+
+.main-buttons:hover {
+  filter: brightness(115%);
+  transform: translateY(-6px) scale(1.03);
+  box-shadow: 0 28px 60px rgba(59, 130, 246, 0.35);
+}
+
+@media (max-width: 768px) {
+  .nav-buttons {
+    gap: 1.75rem;
+    margin-top: 2.5rem;
   }
-  
-  div {
-    text-align: center;
-    background-color: #dfe8e8;
-    width: 100vw;
-    height: 100vh;
-    overflow: hidden;
-  }
-  
-  /* Make the image fit the container */
-  .nbalogo {
-    width: 75%;
-    height: 100%;
-  /*   object-fit: cover;
-    display: block;*/
-  }
-  
+
   .main-buttons {
-    width: 24%;
-    margin-left: 3%;
-    margin-right: 3%;
-    object-fit: cover;
-    overflow: hidden;
+    width: clamp(160px, 60vw, 220px);
   }
-  
-  .main-buttons:hover {
-    filter: brightness(200%);
-    transition: 0.5s;
+}
+
+@media (max-width: 480px) {
+  .home-container {
+    padding-bottom: 3rem;
   }
+
+  .nav-buttons {
+    gap: 1.25rem;
+  }
+}

@@ -1,116 +1,161 @@
 // client/src/pages/TeamPerformanceAnalysis.js
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import '../components/Header.css';
 import './TeamPerformanceAnalysis.css';
 import NavButton from '../components/NavButton';
-import '../components/Form.css'
+import '../components/Form.css';
 import logo from '../images/tpa.png';
 import Modal from '../components/Modal.js';
+import { getTeams, getTeamDetails } from '../services/api';
 
 function TeamPerformanceAnalysis() {
-  const [teamName, setTeamName] = useState('');
-  const [data, setData] = useState({});
+  const [teams, setTeams] = useState([]);
+  const [selectedTeam, setSelectedTeam] = useState('');
+  const [teamData, setTeamData] = useState(null);
   const [error, setError] = useState('');
   const [showModal, setShowModal] = useState(false);
+  const [loadingTeams, setLoadingTeams] = useState(false);
+  const [loadingTeamData, setLoadingTeamData] = useState(false);
 
-  const fetchTeamData = (teamName) => {
-    const encodedTeamName = encodeURIComponent(teamName.trim());
-    console.log('Team Name: ', encodedTeamName);
-    fetch(`http://localhost:4000/api/teams/${encodedTeamName}`)
-      .then(response => {
-        console.log(response.ok);
-        console.log('Response', response);
-        if (!response.ok) {
-          throw new Error(`Network response was not ok: ${response.statusText}`);
-        }
-        return response.json();
-      })
-      .then(data => {
-        console.log("Data fetched for TeamPerformanceAnalysis: ", data);
-        setData(data);
-        setError('');
+  const loadTeamDetails = async (teamName, { openModal = true } = {}) => {
+    if (!teamName) {
+      setError('Lütfen bir takım seçin.');
+      return;
+    }
+
+    setLoadingTeamData(true);
+    try {
+      const data = await getTeamDetails(teamName);
+      setTeamData(data);
+      setError('');
+      if (openModal) {
         setShowModal(true);
-      })
-      .catch(error => {
-        console.error('Error fetching data:', error);
-        setError('Error fetching data. Please try again.');
-      });
+      }
+    } catch (err) {
+      console.error('Error fetching team data', err);
+      setError('Takım verileri alınırken bir hata oluştu.');
+    } finally {
+      setLoadingTeamData(false);
+    }
   };
 
-  const handleSubmit = (event) => {
+  useEffect(() => {
+    const initialiseTeams = async () => {
+      setLoadingTeams(true);
+      try {
+        const fetchedTeams = await getTeams();
+        setTeams(fetchedTeams);
+        if (fetchedTeams.length > 0) {
+          const defaultTeam = fetchedTeams[0].name;
+          setSelectedTeam(defaultTeam);
+          await loadTeamDetails(defaultTeam, { openModal: true });
+        }
+      } catch (err) {
+        console.error('Unable to load teams', err);
+        setError('Takım listesi yüklenemedi. Lütfen sayfayı yenileyin.');
+      } finally {
+        setLoadingTeams(false);
+      }
+    };
+
+    initialiseTeams();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  const handleSubmit = async (event) => {
     event.preventDefault();
-    fetchTeamData(teamName);
+    await loadTeamDetails(selectedTeam, { openModal: true });
   };
 
   const handleCloseModal = () => {
-    setShowModal(false); // Hide modal when close button is clicked
+    setShowModal(false);
   };
 
   return (
-    <div>
-      <header>
-        <img src={logo} alt="NBALogo" className="nbalogo" />
+    <div className="team-performance-page">
+      <header className="page-header">
+        <img src={logo} alt="Team performance" className="nbalogo" />
       </header>
 
-      <div>
-        <NavButton path="/" label="⇦   Return to Home" className="backbutton"/>
+      <div className="page-content">
+        <NavButton path="/" label="⇦   Return to Home" className="backbutton" />
 
-        <div className = "inner">
-          
-        <h2>ENTER A TEAM</h2>
-        <p style={{fontSize: "80%"}}>→ Analyze historical data over the last nine seasons to predict future team performances 
-          <br /> → Identify rolling averages of key statistics over recent games to determine current form and identify trends</p>
-        <hr />
-        <form onSubmit={handleSubmit}>
-          <input
-            type="text"
-            placeholder="Format: [City] [Team]"
-            value={teamName}
-            onChange={(e) => setTeamName(e.target.value)}
-            className="team-input"
-          />
-          <p>
-          <strong>Format:</strong> [City] [Team] <br />
-          <strong>Example: </strong> New York Knicks</p>
-          <button type="submit" className="submit" label = "Submit" style={{margin: '1px'}}>Submit</button>
-        </form>
+        <div className="inner">
+          <h2>SELECT A TEAM</h2>
+          <p className="helper-text">
+            → Analyze historical data over the last five seasons to project future performance.
+            <br /> → Review rolling averages from the most recent 10 games to understand current form.
+          </p>
+          <hr />
+          <form onSubmit={handleSubmit} className="form-grid">
+            <select
+              value={selectedTeam}
+              onChange={(event) => setSelectedTeam(event.target.value)}
+              className="team-input"
+              disabled={loadingTeams}
+            >
+              {teams.map((team) => (
+                <option key={team.code} value={team.name}>
+                  {team.name} — {team.coach}
+                </option>
+              ))}
+            </select>
+            <button type="submit" className="submit" disabled={loadingTeamData || loadingTeams}>
+              {loadingTeamData ? 'Loading…' : 'View Insights'}
+            </button>
+          </form>
 
+          {error && <p className="error">{error}</p>}
         </div>
 
-
-        {error && <p className="error">{error}</p>}
-        
         <Modal show={showModal} handleClose={handleCloseModal}>
-          {data.name && (
-            <div className = "mainPage">
-              <h1>{data.name}</h1>
+          {teamData && (
+            <div className="mainPage">
+              <h1>{teamData.name}</h1>
+              <p className="modal-subtitle">
+                {teamData.conference} Conference · {teamData.division} Division · Coach {teamData.coach}
+              </p>
               <hr />
-              <p>Scroll through this module to see your team's relevant performance insights.</p>
-              <hr />
-                <h3>HISTORICAL DATA INSIGHTS</h3>
-                <table>
-                  <thead>
-                    <tr>
-                      <th>Season</th>
-                      <th>Wins</th>
-                      <th>Losses</th>
-                      <th>Points</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {data.performanceData.map((season, index) => (
-                      <tr key={index}>
-                        <td>{season.season}</td>
-                        <td>{season.wins}</td>
-                        <td>{season.losses}</td>
-                        <td>{season.points}</td>
-                      </tr>
+              {teamData.highlights?.length > 0 && (
+                <section>
+                  <h3>Key Insights</h3>
+                  <ul className="insights-list">
+                    {teamData.highlights.map((insight, index) => (
+                      <li key={insight + index}>{insight}</li>
                     ))}
-                  </tbody>
-                </table>
-                <hr />
-                <h3>CURRENT FORM</h3>
-                  <h4>Last 10 Games:</h4>
+                  </ul>
+                </section>
+              )}
+
+              <section>
+                <h3>Historical Performance (Last 5 Seasons)</h3>
+                <div className="table-wrapper">
+                  <table>
+                    <thead>
+                      <tr>
+                        <th>Season</th>
+                        <th>Wins</th>
+                        <th>Losses</th>
+                        <th>Points</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {teamData.performanceData.map((season) => (
+                        <tr key={season.season}>
+                          <td>{season.season}</td>
+                          <td>{season.wins}</td>
+                          <td>{season.losses}</td>
+                          <td>{season.points}</td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
+              </section>
+
+              <section>
+                <h3>Current Form — Last 10 Games</h3>
+                <div className="table-wrapper">
                   <table>
                     <thead>
                       <tr>
@@ -120,8 +165,8 @@ function TeamPerformanceAnalysis() {
                       </tr>
                     </thead>
                     <tbody>
-                      {data.currentForm.last10Games.map((game, index) => (
-                        <tr key={index}>
+                      {teamData.currentForm.last10Games.map((game, index) => (
+                        <tr key={`${teamData.name}-game-${index}`}>
                           <td>{game.game}</td>
                           <td>{game.points}</td>
                           <td>{game.outcome}</td>
@@ -129,24 +174,35 @@ function TeamPerformanceAnalysis() {
                       ))}
                     </tbody>
                   </table>
+                </div>
+              </section>
 
-                  <h4>Rolling Averages:</h4>
-                  <table>
-                    <thead>
-                      <tr>
-                        <th>Statistic</th>
-                        <th>Value</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      {Object.entries(data.currentForm.rollingAverages).map(([stat, value], index) => (
-                        <tr key={index}>
-                          <td>{stat}</td>
-                          <td>{value}</td>
-                        </tr>
-                      ))}
-                    </tbody>
-                  </table>
+              <section>
+                <h3>Rolling Averages</h3>
+                <div className="card-grid">
+                  {Object.entries(teamData.currentForm.rollingAverages).map(([stat, value]) => (
+                    <div key={stat} className="card">
+                      <h4 className="card-title">{stat}</h4>
+                      <p className="card-metric">{value}</p>
+                    </div>
+                  ))}
+                </div>
+              </section>
+
+              {teamData.keyPlayers?.length > 0 && (
+                <section>
+                  <h3>Player Spotlights</h3>
+                  <div className="card-grid">
+                    {teamData.keyPlayers.map((player) => (
+                      <div key={player.name} className="card">
+                        <h4 className="card-title">{player.name}</h4>
+                        <p className="card-subtitle">{player.position}</p>
+                        <p className="card-note">{player.trend}</p>
+                      </div>
+                    ))}
+                  </div>
+                </section>
+              )}
             </div>
           )}
         </Modal>
