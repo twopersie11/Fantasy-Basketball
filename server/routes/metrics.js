@@ -2,6 +2,8 @@ const express = require('express');
 const fs = require('fs/promises');
 const path = require('path');
 
+const logger = require('../lib/logger');
+
 const router = express.Router();
 
 const OUTPUT_DIR = process.env.METRICS_OUTPUT_DIR
@@ -19,7 +21,7 @@ router.get('/players', async (_req, res) => {
     const metrics = await readJsonFile('player_metrics.json');
     return res.json(metrics);
   } catch (error) {
-    console.error('Failed to load player metrics', error);
+    logger.error('Failed to load player metrics', { error: error.message });
     return res.status(500).json({ error: 'Player metrics are unavailable' });
   }
 });
@@ -46,7 +48,7 @@ router.get('/injury-risk/:playerId', async (req, res) => {
 
     return res.json(playerRisk);
   } catch (error) {
-    console.error('Failed to load injury risk data', error);
+    logger.error('Failed to load injury risk data', { error: error.message });
     return res.status(500).json({ error: 'Injury risk data is unavailable' });
   }
 });
