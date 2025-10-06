@@ -1,0 +1,16 @@
+# Client-side dependencies (install with npm or yarn in the client directory)
+client:@testing-library/jest-dom@^5.17.0
+client:@testing-library/react@^13.4.0
+client:@testing-library/user-event@^13.5.0
+client:axios@^1.7.2
+client:chart.js@^4.4.3
+client:react@^18.3.1
+client:react-chartjs-2@^5.2.0
+client:react-dom@^18.3.1
+client:react-router-dom@^6.23.1
+client:react-scripts@5.0.1
+client:web-vitals@^2.1.4
+
+# Server-side dependencies (install with npm or yarn in the server directory)
+server:cors@^2.8.5
+server:express@^4.19.2
