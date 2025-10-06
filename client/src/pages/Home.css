@@ -14,6 +14,13 @@
   padding: 2rem 1rem 0;
 }
 
+.home-header-top {
+  width: min(960px, 90vw);
+  margin: 0 auto 1.5rem;
+  display: flex;
+  justify-content: flex-end;
+}
+
 .nbalogo {
   width: min(320px, 75vw);
   height: auto;
@@ -47,6 +54,11 @@
   .nav-buttons {
     gap: 1.75rem;
     margin-top: 2.5rem;
+  }
+
+  .home-header-top {
+    justify-content: center;
+    margin-bottom: 1.25rem;
   }
 
   .main-buttons {

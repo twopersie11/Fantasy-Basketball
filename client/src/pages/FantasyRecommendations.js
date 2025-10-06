@@ -5,15 +5,21 @@ import logo from '../images/Fr.png';
 import '../components/Header.css';
 import '../components/Form.css';
 import './FantasyRecommendations.css';
-import { getFantasyAdvice, getFantasyOptions } from '../services/api';
+import YahooConnectButton from '../components/YahooConnectButton';
+import { getFantasyAdvice, getFantasyOptions, getPlayerMetrics } from '../services/api';
+import { buildPlayerSummary, rankPlayers } from '../utils/recommendation';
 
 function FantasyRecommendations() {
   const [options, setOptions] = useState([]);
   const [selectedOption, setSelectedOption] = useState('');
   const [advice, setAdvice] = useState(null);
   const [error, setError] = useState('');
+  const [metricsError, setMetricsError] = useState('');
   const [loadingOptions, setLoadingOptions] = useState(false);
   const [loadingAdvice, setLoadingAdvice] = useState(false);
+  const [loadingMetrics, setLoadingMetrics] = useState(false);
+  const [playerMetrics, setPlayerMetrics] = useState([]);
+  const [recommendations, setRecommendations] = useState([]);
 
   const loadAdvice = async (optionId, { silent = false } = {}) => {
     if (!optionId) {
@@ -62,6 +68,35 @@ function FantasyRecommendations() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
+  useEffect(() => {
+    const fetchMetrics = async () => {
+      setLoadingMetrics(true);
+      try {
+        const metrics = await getPlayerMetrics();
+        setPlayerMetrics(metrics);
+        setMetricsError('');
+      } catch (err) {
+        console.error('Unable to load player metrics', err);
+        setPlayerMetrics([]);
+        setMetricsError('Oyuncu metrikleri yüklenemedi. Lütfen daha sonra tekrar deneyin.');
+      } finally {
+        setLoadingMetrics(false);
+      }
+    };
+
+    fetchMetrics();
+  }, []);
+
+  useEffect(() => {
+    if (!playerMetrics.length || !selectedOption) {
+      setRecommendations([]);
+      return;
+    }
+
+    const ranked = rankPlayers(playerMetrics, { strategyId: selectedOption, limit: 10 });
+    setRecommendations(ranked.map((player) => buildPlayerSummary(player)));
+  }, [playerMetrics, selectedOption]);
+
   const handleSubmit = async (event) => {
     event.preventDefault();
     await loadAdvice(selectedOption);
@@ -79,7 +114,10 @@ function FantasyRecommendations() {
       </header>
 
       <div className="page-content">
-        <NavButton path="/" label="⇦   Return to Home" className="backbutton" />
+        <div className="page-toolbar">
+          <NavButton path="/" label="⇦   Return to Home" className="backbutton" />
+          <YahooConnectButton className="page-yahoo-button" />
+        </div>
 
         <div className="inner">
           <h2>SELECT FANTASY CRITERIA</h2>
@@ -237,6 +275,63 @@ function FantasyRecommendations() {
             )}
           </div>
         )}
+
+        <div className="inner results-panel recommendation-engine">
+          <h2>LIVE DRAFT RECOMMENDATIONS</h2>
+          <p className="helper-text">
+            → Yahoo bağlantısı sonrası canlı draft sırasında öne çıkan oyuncuları izleyin.
+            <br /> → Seçtiğiniz stratejiye göre metrikleri ağırlıklandırıp en iyi 10 adayı sıralar.
+          </p>
+          <hr />
+
+          {loadingMetrics && <p className="info">Oyuncu metrikleri yükleniyor…</p>}
+          {!loadingMetrics && metricsError && <p className="error">{metricsError}</p>}
+
+          {!loadingMetrics && !metricsError && recommendations.length > 0 && (
+            <div className="recommendation-grid">
+              {recommendations.map((player) => (
+                <div key={`${player.name}-${player.team}`} className="card recommendation-card">
+                  <div className="card-header">
+                    <div>
+                      <h4 className="card-title">{player.name}</h4>
+                      <p className="card-subtitle">{player.team} · {player.positions}</p>
+                    </div>
+                    <div className="score-chip">
+                      <span className="score-label">Score</span>
+                      <span className="score-value">{(player.score * 100).toFixed(1)}</span>
+                    </div>
+                  </div>
+                  <div className="metric-pills">
+                    <span className="metric-pill">
+                      <span className="metric-label">VORP</span>
+                      <span className="metric-value">{(player.vorp * 100).toFixed(0)}%</span>
+                    </span>
+                    <span className="metric-pill">
+                      <span className="metric-label">Scarcity</span>
+                      <span className="metric-value">{(player.scarcity * 100).toFixed(0)}%</span>
+                    </span>
+                    <span className="metric-pill">
+                      <span className="metric-label">Team Need</span>
+                      <span className="metric-value">{(player.teamNeed * 100).toFixed(0)}%</span>
+                    </span>
+                    <span className="metric-pill">
+                      <span className="metric-label">Playoffs</span>
+                      <span className="metric-value">{(player.playoffStrength * 100).toFixed(0)}%</span>
+                    </span>
+                    <span className="metric-pill warning">
+                      <span className="metric-label">Injury Risk</span>
+                      <span className="metric-value">{(player.injuryRisk * 100).toFixed(0)}%</span>
+                    </span>
+                  </div>
+                </div>
+              ))}
+            </div>
+          )}
+
+          {!loadingMetrics && !metricsError && recommendations.length === 0 && (
+            <p className="info">Strateji seçimi tamamlandığında öneriler burada görüntülenecek.</p>
+          )}
+        </div>
       </div>
     </div>
   );

@@ -17,6 +17,7 @@ import '../components/Header.css';
 import '../components/Form.css';
 import './MatchupAnalyzer.css';
 import { getMatchup } from '../services/api';
+import YahooConnectButton from '../components/YahooConnectButton';
 
 ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend);
 
@@ -149,7 +150,10 @@ function MatchupAnalyzer() {
       </header>
 
       <div className="page-content">
-        <NavButton path="/" label="⇦   Return to Home" className="backbutton" />
+        <div className="page-toolbar">
+          <NavButton path="/" label="⇦   Return to Home" className="backbutton" />
+          <YahooConnectButton className="page-yahoo-button" />
+        </div>
 
         <div className="inner">
           <h2>COMPARE TWO TEAMS</h2>

@@ -6,6 +6,7 @@ import NavButton from '../components/NavButton';
 import '../components/Form.css';
 import logo from '../images/tpa.png';
 import Modal from '../components/Modal.js';
+import YahooConnectButton from '../components/YahooConnectButton';
 import { getTeamDetails } from '../services/api';
 
 function TeamPerformanceAnalysis() {
@@ -87,7 +88,10 @@ function TeamPerformanceAnalysis() {
       </header>
 
       <div className="page-content">
-        <NavButton path="/" label="⇦   Return to Home" className="backbutton" />
+        <div className="page-toolbar">
+          <NavButton path="/" label="⇦   Return to Home" className="backbutton" />
+          <YahooConnectButton className="page-yahoo-button" />
+        </div>
 
         <div className="inner">
           <h2>SELECT A TEAM</h2>

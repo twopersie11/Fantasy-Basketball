@@ -1,0 +1,194 @@
+[
+  {
+    "id": "23",
+    "name": "LeBron James",
+    "team": "LAL",
+    "positions": ["SF", "PF"],
+    "vorp": 0.92,
+    "scarcity": 0.64,
+    "team_need": 0.78,
+    "playoff_strength": 0.71,
+    "injury_risk": 0.26,
+    "strategy_fit": {
+      "lineup": 0.94,
+      "trades": 0.82,
+      "sleepers": 0.35
+    }
+  },
+  {
+    "id": "158",
+    "name": "Nikola Jokić",
+    "team": "DEN",
+    "positions": ["C"],
+    "vorp": 0.98,
+    "scarcity": 0.88,
+    "team_need": 0.74,
+    "playoff_strength": 0.76,
+    "injury_risk": 0.18,
+    "strategy_fit": {
+      "lineup": 0.99,
+      "trades": 0.91,
+      "sleepers": 0.22
+    }
+  },
+  {
+    "id": "399",
+    "name": "Shai Gilgeous-Alexander",
+    "team": "OKC",
+    "positions": ["PG"],
+    "vorp": 0.95,
+    "scarcity": 0.74,
+    "team_need": 0.68,
+    "playoff_strength": 0.62,
+    "injury_risk": 0.21,
+    "strategy_fit": {
+      "lineup": 0.9,
+      "trades": 0.87,
+      "sleepers": 0.4
+    }
+  },
+  {
+    "id": "472",
+    "name": "Jayson Tatum",
+    "team": "BOS",
+    "positions": ["SF", "PF"],
+    "vorp": 0.91,
+    "scarcity": 0.7,
+    "team_need": 0.66,
+    "playoff_strength": 0.8,
+    "injury_risk": 0.19,
+    "strategy_fit": {
+      "lineup": 0.88,
+      "trades": 0.86,
+      "sleepers": 0.3
+    }
+  },
+  {
+    "id": "476",
+    "name": "Tyrese Haliburton",
+    "team": "IND",
+    "positions": ["PG"],
+    "vorp": 0.89,
+    "scarcity": 0.72,
+    "team_need": 0.82,
+    "playoff_strength": 0.58,
+    "injury_risk": 0.24,
+    "strategy_fit": {
+      "lineup": 0.86,
+      "trades": 0.8,
+      "sleepers": 0.45
+    }
+  },
+  {
+    "id": "545",
+    "name": "Anthony Edwards",
+    "team": "MIN",
+    "positions": ["SG", "SF"],
+    "vorp": 0.84,
+    "scarcity": 0.69,
+    "team_need": 0.77,
+    "playoff_strength": 0.66,
+    "injury_risk": 0.22,
+    "strategy_fit": {
+      "lineup": 0.83,
+      "trades": 0.78,
+      "sleepers": 0.5
+    }
+  },
+  {
+    "id": "602",
+    "name": "Domantas Sabonis",
+    "team": "SAC",
+    "positions": ["C"],
+    "vorp": 0.9,
+    "scarcity": 0.82,
+    "team_need": 0.7,
+    "playoff_strength": 0.6,
+    "injury_risk": 0.2,
+    "strategy_fit": {
+      "lineup": 0.85,
+      "trades": 0.88,
+      "sleepers": 0.33
+    }
+  },
+  {
+    "id": "666",
+    "name": "Victor Wembanyama",
+    "team": "SAS",
+    "positions": ["PF", "C"],
+    "vorp": 0.82,
+    "scarcity": 0.77,
+    "team_need": 0.81,
+    "playoff_strength": 0.52,
+    "injury_risk": 0.3,
+    "strategy_fit": {
+      "lineup": 0.79,
+      "trades": 0.73,
+      "sleepers": 0.66
+    }
+  },
+  {
+    "id": "690",
+    "name": "Mikal Bridges",
+    "team": "BKN",
+    "positions": ["SG", "SF"],
+    "vorp": 0.78,
+    "scarcity": 0.62,
+    "team_need": 0.74,
+    "playoff_strength": 0.55,
+    "injury_risk": 0.17,
+    "strategy_fit": {
+      "lineup": 0.75,
+      "trades": 0.7,
+      "sleepers": 0.58
+    }
+  },
+  {
+    "id": "732",
+    "name": "Chet Holmgren",
+    "team": "OKC",
+    "positions": ["PF", "C"],
+    "vorp": 0.8,
+    "scarcity": 0.76,
+    "team_need": 0.79,
+    "playoff_strength": 0.57,
+    "injury_risk": 0.28,
+    "strategy_fit": {
+      "lineup": 0.78,
+      "trades": 0.74,
+      "sleepers": 0.62
+    }
+  },
+  {
+    "id": "845",
+    "name": "Jalen Williams",
+    "team": "OKC",
+    "positions": ["SG", "SF"],
+    "vorp": 0.76,
+    "scarcity": 0.6,
+    "team_need": 0.72,
+    "playoff_strength": 0.54,
+    "injury_risk": 0.23,
+    "strategy_fit": {
+      "lineup": 0.72,
+      "trades": 0.68,
+      "sleepers": 0.64
+    }
+  },
+  {
+    "id": "902",
+    "name": "Alperen Şengün",
+    "team": "HOU",
+    "positions": ["C"],
+    "vorp": 0.81,
+    "scarcity": 0.8,
+    "team_need": 0.75,
+    "playoff_strength": 0.5,
+    "injury_risk": 0.27,
+    "strategy_fit": {
+      "lineup": 0.8,
+      "trades": 0.77,
+      "sleepers": 0.61
+    }
+  }
+]
