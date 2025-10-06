@@ -1,0 +1,93 @@
+.visualization-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 24px;
+  margin-top: 24px;
+}
+
+.visualization-card {
+  background: #101823;
+  border-radius: 16px;
+  padding: 24px;
+  box-shadow: 0 12px 32px rgba(8, 20, 40, 0.45);
+  border: 1px solid rgba(76, 110, 245, 0.25);
+  display: flex;
+  flex-direction: column;
+}
+
+.visualization-card h3 {
+  font-size: 1.1rem;
+  margin-bottom: 12px;
+  letter-spacing: 0.04em;
+  color: #f5f8ff;
+}
+
+.visualization-card p {
+  color: rgba(216, 227, 255, 0.78);
+  font-size: 0.9rem;
+  margin-bottom: 16px;
+}
+
+.visualization-chart {
+  position: relative;
+  width: 100%;
+  min-height: 260px;
+}
+
+.visualization-footnote {
+  margin-top: 16px;
+  font-size: 0.8rem;
+  color: rgba(216, 227, 255, 0.6);
+  line-height: 1.4;
+}
+
+.visualization-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 16px;
+  font-size: 0.85rem;
+  color: rgba(216, 227, 255, 0.85);
+}
+
+.visualization-legend span {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.visualization-legend i {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  border-radius: 4px;
+}
+
+.visualization-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 12px;
+}
+
+.visualization-table th,
+.visualization-table td {
+  border-bottom: 1px solid rgba(76, 110, 245, 0.2);
+  padding: 8px 12px;
+  text-align: left;
+}
+
+.visualization-table th {
+  font-weight: 600;
+  color: rgba(245, 248, 255, 0.85);
+}
+
+.visualization-table td {
+  color: rgba(216, 227, 255, 0.78);
+}
+
+.visualization-empty {
+  font-size: 0.9rem;
+  color: rgba(216, 227, 255, 0.65);
+  text-align: center;
+  padding: 24px 0;
+}

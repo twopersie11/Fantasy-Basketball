@@ -159,6 +159,18 @@ Main Directory Command: `cd NBA-Fantasy-Assistant`
 
 <div align="left">
 
+#### Production Deployment
+
+1. **Build the client UI:** `cd client && npm run build`
+2. **Start the unified Express server:** `cd ../server && NODE_ENV=production PORT=8080 node index.js`
+   * The Express instance now serves the static React build (`client/build`) while exposing the JSON APIs under `/api`.
+   * Verify that `http://localhost:8080` responds with both the UI shell and API routes (e.g. `http://localhost:8080/health`).
+3. **Process manager & reverse proxy (recommended):**
+   * Use [PM2](https://pm2.keymetrics.io/) or a similar process manager to keep the Node process alive and capture structured logs (Winston + Morgan are pre-configured).
+   * Place the Express app behind Nginx/another reverse proxy to terminate TLS and enable caching/compression policies.
+
+</div>
+
 ### Installing dependencies with the consolidated requirements file
 
 If you prefer using the single `requirements.txt` file that lists both the

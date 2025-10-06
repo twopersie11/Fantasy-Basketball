@@ -8,6 +8,17 @@ import './FantasyRecommendations.css';
 import YahooConnectButton from '../components/YahooConnectButton';
 import { getFantasyAdvice, getFantasyOptions, getPlayerMetrics } from '../services/api';
 import { buildPlayerSummary, rankPlayers } from '../utils/recommendation';
+import RadarPerformanceChart from '../components/visualizations/RadarPerformanceChart';
+import DraftTrendHeatmap from '../components/visualizations/DraftTrendHeatmap';
+import RiskMatrix from '../components/visualizations/RiskMatrix';
+import PlayoffScheduler from '../components/visualizations/PlayoffScheduler';
+import {
+  buildCategoryScores,
+  buildDraftTrendHeatmap,
+  buildRiskMatrixPoints,
+  buildPlayoffSchedule,
+} from '../utils/draftInsights';
+import '../components/visualizations/Visualizations.css';
 
 function FantasyRecommendations() {
   const [options, setOptions] = useState([]);
@@ -20,6 +31,7 @@ function FantasyRecommendations() {
   const [loadingMetrics, setLoadingMetrics] = useState(false);
   const [playerMetrics, setPlayerMetrics] = useState([]);
   const [recommendations, setRecommendations] = useState([]);
+  const [topPlayers, setTopPlayers] = useState([]);
 
   const loadAdvice = async (optionId, { silent = false } = {}) => {
     if (!optionId) {
@@ -90,10 +102,12 @@ function FantasyRecommendations() {
   useEffect(() => {
     if (!playerMetrics.length || !selectedOption) {
       setRecommendations([]);
+      setTopPlayers([]);
       return;
     }
 
     const ranked = rankPlayers(playerMetrics, { strategyId: selectedOption, limit: 10 });
+    setTopPlayers(ranked);
     setRecommendations(ranked.map((player) => buildPlayerSummary(player)));
   }, [playerMetrics, selectedOption]);
 
@@ -106,6 +120,20 @@ function FantasyRecommendations() {
     () => options.find((option) => option.id === selectedOption),
     [options, selectedOption],
   );
+
+  const categoryScores = useMemo(
+    () => buildCategoryScores(topPlayers, selectedOption),
+    [topPlayers, selectedOption],
+  );
+
+  const draftTrendHeatmap = useMemo(
+    () => buildDraftTrendHeatmap(topPlayers),
+    [topPlayers],
+  );
+
+  const riskMatrixPoints = useMemo(() => buildRiskMatrixPoints(topPlayers), [topPlayers]);
+
+  const playoffSchedule = useMemo(() => buildPlayoffSchedule(topPlayers), [topPlayers]);
 
   return (
     <div className="fantasy-page">
@@ -331,6 +359,37 @@ function FantasyRecommendations() {
           {!loadingMetrics && !metricsError && recommendations.length === 0 && (
             <p className="info">Strateji seçimi tamamlandığında öneriler burada görüntülenecek.</p>
           )}
+        </div>
+
+        <div className="inner results-panel">
+          <h2>DRAFT GÖRSELLEŞTİRMELERİ</h2>
+          <p className="helper-text">
+            → Draft çekirdeğinizin kategori dağılımını ve pozisyon eğilimlerini takip edin.
+            <br /> → Risk-maliyet dengesini ve playoff haftalarına yönelik program avantajını hızlıca inceleyin.
+          </p>
+          <hr />
+          <div className="visualization-grid">
+            <RadarPerformanceChart
+              title="Kategori Güç Haritası"
+              description="Seçilen stratejiye göre çekirdeğinizin 9 kategorideki ortalama gücünü gösterir."
+              scores={categoryScores}
+            />
+            <DraftTrendHeatmap
+              title="Draft Trend Heatmap"
+              description="Raund ve pozisyon bazında hangi alanlarda oyuncu akınları oluştuğunu izleyin."
+              heatmap={draftTrendHeatmap}
+            />
+            <RiskMatrix
+              title="VORP vs. Injury Risk"
+              description="Yüksek değer - düşük risk kombinasyonlarını bulmak için dağılımı inceleyin."
+              points={riskMatrixPoints}
+            />
+            <PlayoffScheduler
+              title="Playoff Takvim Planlayıcısı"
+              description="Fikstür yoğunluğu ve rakip gücüne göre kritik haftalara hazırlan."
+              schedule={playoffSchedule}
+            />
+          </div>
         </div>
       </div>
     </div>

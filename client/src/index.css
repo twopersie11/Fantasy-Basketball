@@ -6,6 +6,32 @@ body {
   font-family: 'Montserrat', sans-serif;
 }
 
+.error-boundary {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  background: radial-gradient(circle at top, rgba(24, 38, 68, 0.98), #060b14);
+  color: #f5f8ff;
+  text-align: center;
+}
+
+.error-boundary button {
+  padding: 10px 18px;
+  border-radius: 12px;
+  border: none;
+  background: linear-gradient(135deg, #4c6ef5, #94b0ff);
+  color: #030712;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.error-boundary button:hover {
+  filter: brightness(1.05);
+}
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
