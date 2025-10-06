@@ -1,0 +1,160 @@
+{
+  "lineup": {
+    "label": "Optimal Lineup Suggestions",
+    "description": "Build a high-upside weekly lineup using pace, usage, and opponent matchup data.",
+    "summary": "Lean into pace-up matchups while stacking reliable usage monsters. Prioritize players drawing soft defenses and target heavy transition opportunities.",
+    "lineup": [
+      {
+        "position": "PG",
+        "player": "Jalen Brunson",
+        "team": "New York Knicks",
+        "rationale": "Facing two bottom-10 pick-and-roll defenses; 34% usage with 9.1 assists in last 10."
+      },
+      {
+        "position": "SG",
+        "player": "Donovan Mitchell",
+        "team": "Cleveland Cavaliers",
+        "rationale": "Gets three pace-up opponents with weak point-of-attack resistance—prime scoring week."
+      },
+      {
+        "position": "SF",
+        "player": "LeBron James",
+        "team": "Los Angeles Lakers",
+        "rationale": "Projected for 36 minutes nightly in a four-game slate featuring two top-10 pace teams."
+      },
+      {
+        "position": "PF",
+        "player": "Draymond Green",
+        "team": "Golden State Warriors",
+        "rationale": "Stuffing box scores as small-ball five (9.6 assists, 9.2 rebounds last five contests)."
+      },
+      {
+        "position": "C",
+        "player": "Anthony Davis",
+        "team": "Los Angeles Lakers",
+        "rationale": "Averages 28/14/3 with 3.2 blocks against upcoming interior matchups."
+      },
+      {
+        "position": "G",
+        "player": "Austin Reaves",
+        "team": "Los Angeles Lakers",
+        "rationale": "Secondary ball-handler upside; 27% usage with second unit, strong free-throw volume."
+      },
+      {
+        "position": "F",
+        "player": "Josh Hart",
+        "team": "New York Knicks",
+        "rationale": "Elite rebounding wing averaging 38 minutes and 12 boards—secure floor with stocks."
+      },
+      {
+        "position": "UTIL",
+        "player": "Stephen Curry",
+        "team": "Golden State Warriors",
+        "rationale": "Three opponents bottom third in defending pull-up threes; expect 5+ treys nightly."
+      }
+    ],
+    "benchStreamers": [
+      "Immanuel Quickley (TOR) for assists and threes mid-week.",
+      "Norman Powell (LAC) for scoring burst in back-to-back sets.",
+      "Nick Richards (CHA) as weekend rebounds/blocks specialist."
+    ],
+    "strategyTips": [
+      "Target four-game weeks with at least one back-to-back to maximize counting stats.",
+      "Prioritize players drawing bottom-10 defenses in opponent effective field goal percentage.",
+      "Utilize UTIL slot for the highest projected usage regardless of position eligibility."
+    ],
+    "keyMetrics": {
+      "projectedGames": 27,
+      "averageUsage": "27.4%",
+      "estimatedFantasyPoints": 1435
+    }
+  },
+  "trades": {
+    "label": "Trading/Free Agency Advice",
+    "description": "Identify buy-low, sell-high, and waiver-wire opportunities based on trend analysis.",
+    "summary": "Buy into players trending up in usage or efficiency while moving on from inflated shooting heaters. Balance your roster by addressing categorical weaknesses.",
+    "buyTargets": [
+      {
+        "player": "Darius Garland",
+        "team": "Cleveland Cavaliers",
+        "rationale": "Minutes restriction lifted and assist rate climbing; prime buy-low for playoffs."
+      },
+      {
+        "player": "Klay Thompson",
+        "team": "Golden State Warriors",
+        "rationale": "Reinserted into starting five with 28-minute floor—elite threes and points streamer."
+      },
+      {
+        "player": "OG Anunoby",
+        "team": "New York Knicks",
+        "rationale": "Stuffing stocks (2.6 steals + blocks) and high efficiency; fits 9-cat builds perfectly."
+      }
+    ],
+    "sellHighCandidates": [
+      {
+        "player": "Rui Hachimura",
+        "team": "Los Angeles Lakers",
+        "rationale": "Shooting 63% over last 8; regression likely once defenses adjust to AD double-teams."
+      },
+      {
+        "player": "Caris LeVert",
+        "team": "Cleveland Cavaliers",
+        "rationale": "Usage dips with Garland/Mitchell healthy—use hot stretch to swing a trade."
+      }
+    ],
+    "waiverAdds": [
+      {
+        "player": "Donte DiVincenzo",
+        "team": "New York Knicks",
+        "rationale": "Top-15 in made threes with expanded minutes; contributes steals."
+      },
+      {
+        "player": "Brandin Podziemski",
+        "team": "Golden State Warriors",
+        "rationale": "Across-the-board production, elite rebounds for a guard."
+      }
+    ],
+    "strategyTips": [
+      "Always package sell-high players with safe floor contributors to land established stars.",
+      "Scan weekly schedules—target teams with Monday/Wednesday/Fri heavy loads to win volume.",
+      "When streaming, prioritize minutes security over name value late in the season."
+    ]
+  },
+  "sleepers": {
+    "label": "High-Value Sleepers & Injury Watch",
+    "description": "Monitor emerging contributors and injury pivots to stay ahead of the waiver wire.",
+    "summary": "Use injury reports and role changes to stash upside plays before they break out. Blend short-term injury fill-ins with high-upside stashes.",
+    "watchList": [
+      {
+        "player": "Miles McBride",
+        "team": "New York Knicks",
+        "rationale": "Crushing second-unit minutes with elite steals; leap in minutes if Brunson rests."
+      },
+      {
+        "player": "Max Christie",
+        "team": "Los Angeles Lakers",
+        "rationale": "Monitoring Reeves/DLo workload—Christie offers 3-and-D floor when minutes spike."
+      },
+      {
+        "player": "Isaiah Mobley",
+        "team": "Cleveland Cavaliers",
+        "rationale": "Stash for Allen injury insurance; per-36 double-double machine."
+      }
+    ],
+    "injuryPivots": [
+      {
+        "situation": "Warriors resting veterans on back-to-backs",
+        "pivot": "Jonathan Kuminga becomes must-start with 22+ usage and defensive stats."
+      },
+      {
+        "situation": "Lakers monitoring Anthony Davis minutes",
+        "pivot": "Jaxson Hayes stream for rebounds/blocks when Davis sits."
+      }
+    ],
+    "strategyTips": [
+      "Check injury reports 90 minutes before tip-off to capitalize on late-breaking absences.",
+      "Stagger sleeper adds with roster needs—stash upside wings if you’re heavy on guards.",
+      "Plan waiver adds around low-competition nights (Tuesday/Thursday) to maximize games played."
+    ]
+  }
+}

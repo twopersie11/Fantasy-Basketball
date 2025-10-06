@@ -1,0 +1,498 @@
+[
+  {
+    "name": "New York Knicks",
+    "code": "NYK",
+    "conference": "Eastern",
+    "division": "Atlantic",
+    "coach": "Tom Thibodeau",
+    "arena": "Madison Square Garden",
+    "performanceData": [
+      {
+        "season": "2023-24",
+        "wins": 50,
+        "losses": 32,
+        "points": 116.2
+      },
+      {
+        "season": "2022-23",
+        "wins": 47,
+        "losses": 35,
+        "points": 114.8
+      },
+      {
+        "season": "2021-22",
+        "wins": 37,
+        "losses": 45,
+        "points": 110
+      },
+      {
+        "season": "2020-21",
+        "wins": 41,
+        "losses": 31,
+        "points": 107
+      },
+      {
+        "season": "2019-20",
+        "wins": 21,
+        "losses": 45,
+        "points": 105.8
+      }
+    ],
+    "currentForm": {
+      "last10Games": [
+        {
+          "game": "Game 1",
+          "points": 118,
+          "outcome": "Win"
+        },
+        {
+          "game": "Game 2",
+          "points": 115,
+          "outcome": "Win"
+        },
+        {
+          "game": "Game 3",
+          "points": 111,
+          "outcome": "Win"
+        },
+        {
+          "game": "Game 4",
+          "points": 104,
+          "outcome": "Loss"
+        },
+        {
+          "game": "Game 5",
+          "points": 119,
+          "outcome": "Win"
+        },
+        {
+          "game": "Game 6",
+          "points": 121,
+          "outcome": "Win"
+        },
+        {
+          "game": "Game 7",
+          "points": 109,
+          "outcome": "Loss"
+        },
+        {
+          "game": "Game 8",
+          "points": 124,
+          "outcome": "Win"
+        },
+        {
+          "game": "Game 9",
+          "points": 112,
+          "outcome": "Win"
+        },
+        {
+          "game": "Game 10",
+          "points": 117,
+          "outcome": "Loss"
+        }
+      ],
+      "rollingAverages": {
+        "points": 115.4,
+        "assists": 25.7,
+        "rebounds": 46.9,
+        "fgPercentage": 47.8,
+        "threePtPercentage": 38.4,
+        "netRating": 4.6
+      }
+    },
+    "highlights": [
+      "Top-5 half-court defense over the last 15 games (107.1 defensive rating).",
+      "Jalen Brunson usage has climbed to 31.6% with 8.2 assists per game in March.",
+      "Second-chance points up 18% year-over-year thanks to Isaiah Hartenstein rebound control."
+    ],
+    "keyPlayers": [
+      {
+        "name": "Jalen Brunson",
+        "position": "PG",
+        "trend": "31.6% usage, 7.8 drives per game creating 1.24 points per possession."
+      },
+      {
+        "name": "Josh Hart",
+        "position": "G/F",
+        "trend": "Averaging 11.2 rebounds over last 10 with elite hustle stats."
+      },
+      {
+        "name": "OG Anunoby",
+        "position": "F",
+        "trend": "Defensive matchup suppressor holding wings to 41% effective FG."
+      }
+    ]
+  },
+  {
+    "name": "Los Angeles Lakers",
+    "code": "LAL",
+    "conference": "Western",
+    "division": "Pacific",
+    "coach": "Darvin Ham",
+    "arena": "Crypto.com Arena",
+    "performanceData": [
+      {
+        "season": "2023-24",
+        "wins": 48,
+        "losses": 34,
+        "points": 117.5
+      },
+      {
+        "season": "2022-23",
+        "wins": 43,
+        "losses": 39,
+        "points": 116.6
+      },
+      {
+        "season": "2021-22",
+        "wins": 33,
+        "losses": 49,
+        "points": 112.1
+      },
+      {
+        "season": "2020-21",
+        "wins": 42,
+        "losses": 30,
+        "points": 109.5
+      },
+      {
+        "season": "2019-20",
+        "wins": 52,
+        "losses": 19,
+        "points": 113.4
+      }
+    ],
+    "currentForm": {
+      "last10Games": [
+        {
+          "game": "Game 1",
+          "points": 121,
+          "outcome": "Win"
+        },
+        {
+          "game": "Game 2",
+          "points": 125,
+          "outcome": "Win"
+        },
+        {
+          "game": "Game 3",
+          "points": 118,
+          "outcome": "Loss"
+        },
+        {
+          "game": "Game 4",
+          "points": 131,
+          "outcome": "Win"
+        },
+        {
+          "game": "Game 5",
+          "points": 115,
+          "outcome": "Loss"
+        },
+        {
+          "game": "Game 6",
+          "points": 122,
+          "outcome": "Win"
+        },
+        {
+          "game": "Game 7",
+          "points": 111,
+          "outcome": "Win"
+        },
+        {
+          "game": "Game 8",
+          "points": 109,
+          "outcome": "Loss"
+        },
+        {
+          "game": "Game 9",
+          "points": 128,
+          "outcome": "Win"
+        },
+        {
+          "game": "Game 10",
+          "points": 119,
+          "outcome": "Loss"
+        }
+      ],
+      "rollingAverages": {
+        "points": 120.3,
+        "assists": 26.9,
+        "rebounds": 43.7,
+        "fgPercentage": 49.6,
+        "threePtPercentage": 37.1,
+        "netRating": 2.8
+      }
+    },
+    "highlights": [
+      "Transition offense generates 1.23 points per possession, 3rd in the NBA since the break.",
+      "LeBron James averaging 10.4 assists in March on 64% true shooting.",
+      "Anthony Davis holds opponents to 57% at the rim, anchoring elite paint defense."
+    ],
+    "keyPlayers": [
+      {
+        "name": "LeBron James",
+        "position": "F",
+        "trend": "League-leading 15.2 potential assists per game during last two weeks."
+      },
+      {
+        "name": "Anthony Davis",
+        "position": "C",
+        "trend": "Averaging 28.4 points and 14.1 rebounds over previous 7 contests."
+      },
+      {
+        "name": "Austin Reaves",
+        "position": "G",
+        "trend": "Pick-and-roll efficiency up to 1.08 PPP as primary ball handler."
+      }
+    ]
+  },
+  {
+    "name": "Golden State Warriors",
+    "code": "GSW",
+    "conference": "Western",
+    "division": "Pacific",
+    "coach": "Steve Kerr",
+    "arena": "Chase Center",
+    "performanceData": [
+      {
+        "season": "2023-24",
+        "wins": 46,
+        "losses": 36,
+        "points": 118.3
+      },
+      {
+        "season": "2022-23",
+        "wins": 44,
+        "losses": 38,
+        "points": 118.9
+      },
+      {
+        "season": "2021-22",
+        "wins": 53,
+        "losses": 29,
+        "points": 113.8
+      },
+      {
+        "season": "2020-21",
+        "wins": 39,
+        "losses": 33,
+        "points": 113.7
+      },
+      {
+        "season": "2019-20",
+        "wins": 15,
+        "losses": 50,
+        "points": 106.3
+      }
+    ],
+    "currentForm": {
+      "last10Games": [
+        {
+          "game": "Game 1",
+          "points": 124,
+          "outcome": "Win"
+        },
+        {
+          "game": "Game 2",
+          "points": 118,
+          "outcome": "Win"
+        },
+        {
+          "game": "Game 3",
+          "points": 127,
+          "outcome": "Win"
+        },
+        {
+          "game": "Game 4",
+          "points": 104,
+          "outcome": "Loss"
+        },
+        {
+          "game": "Game 5",
+          "points": 132,
+          "outcome": "Win"
+        },
+        {
+          "game": "Game 6",
+          "points": 110,
+          "outcome": "Loss"
+        },
+        {
+          "game": "Game 7",
+          "points": 129,
+          "outcome": "Win"
+        },
+        {
+          "game": "Game 8",
+          "points": 121,
+          "outcome": "Win"
+        },
+        {
+          "game": "Game 9",
+          "points": 126,
+          "outcome": "Loss"
+        },
+        {
+          "game": "Game 10",
+          "points": 133,
+          "outcome": "Win"
+        }
+      ],
+      "rollingAverages": {
+        "points": 122.4,
+        "assists": 28.8,
+        "rebounds": 44.1,
+        "fgPercentage": 48.7,
+        "threePtPercentage": 39.9,
+        "netRating": 5.2
+      }
+    },
+    "highlights": [
+      "Top ranked in off-ball screen efficiency creating 21.4 catch-and-shoot points nightly.",
+      "Stephen Curry averaging 5.2 made threes with 66% effective FG in last 10 games.",
+      "Bench unit net rating of +9.7 sparked by Jonathan Kuminga two-way emergence."
+    ],
+    "keyPlayers": [
+      {
+        "name": "Stephen Curry",
+        "position": "PG",
+        "trend": "40.3% usage in crunch time with 68% effective field goal percentage."
+      },
+      {
+        "name": "Klay Thompson",
+        "position": "SG",
+        "trend": "Scoring 23.1 points on 44% from deep when starting alongside Curry and Podziemski."
+      },
+      {
+        "name": "Draymond Green",
+        "position": "F",
+        "trend": "Facilitating 9.1 potential assists and anchoring switch-heavy defense."
+      }
+    ]
+  },
+  {
+    "name": "Cleveland Cavaliers",
+    "code": "CLE",
+    "conference": "Eastern",
+    "division": "Central",
+    "coach": "J. B. Bickerstaff",
+    "arena": "Rocket Mortgage FieldHouse",
+    "performanceData": [
+      {
+        "season": "2023-24",
+        "wins": 52,
+        "losses": 30,
+        "points": 115.1
+      },
+      {
+        "season": "2022-23",
+        "wins": 51,
+        "losses": 31,
+        "points": 112.3
+      },
+      {
+        "season": "2021-22",
+        "wins": 44,
+        "losses": 38,
+        "points": 112
+      },
+      {
+        "season": "2020-21",
+        "wins": 22,
+        "losses": 50,
+        "points": 103.8
+      },
+      {
+        "season": "2019-20",
+        "wins": 19,
+        "losses": 46,
+        "points": 106.9
+      }
+    ],
+    "currentForm": {
+      "last10Games": [
+        {
+          "game": "Game 1",
+          "points": 116,
+          "outcome": "Win"
+        },
+        {
+          "game": "Game 2",
+          "points": 114,
+          "outcome": "Win"
+        },
+        {
+          "game": "Game 3",
+          "points": 101,
+          "outcome": "Loss"
+        },
+        {
+          "game": "Game 4",
+          "points": 119,
+          "outcome": "Win"
+        },
+        {
+          "game": "Game 5",
+          "points": 123,
+          "outcome": "Win"
+        },
+        {
+          "game": "Game 6",
+          "points": 108,
+          "outcome": "Loss"
+        },
+        {
+          "game": "Game 7",
+          "points": 112,
+          "outcome": "Loss"
+        },
+        {
+          "game": "Game 8",
+          "points": 125,
+          "outcome": "Win"
+        },
+        {
+          "game": "Game 9",
+          "points": 117,
+          "outcome": "Win"
+        },
+        {
+          "game": "Game 10",
+          "points": 111,
+          "outcome": "Loss"
+        }
+      ],
+      "rollingAverages": {
+        "points": 114.2,
+        "assists": 26.1,
+        "rebounds": 44.8,
+        "fgPercentage": 48.1,
+        "threePtPercentage": 37.6,
+        "netRating": 3.9
+      }
+    },
+    "highlights": [
+      "Own the league’s best defensive rating (106.4) since the All-Star break.",
+      "Donovan Mitchell averaging 29.6 points and 6.5 assists over his last 12 appearances.",
+      "Jarrett Allen producing 17 double-doubles in a 20-game span."
+    ],
+    "keyPlayers": [
+      {
+        "name": "Donovan Mitchell",
+        "position": "SG",
+        "trend": "High-volume creator with 34% usage and elite pull-up efficiency."
+      },
+      {
+        "name": "Darius Garland",
+        "position": "PG",
+        "trend": "Running 52 pick-and-rolls per game generating 1.09 PPP for the Cavs."
+      },
+      {
+        "name": "Jarrett Allen",
+        "position": "C",
+        "trend": "Anchor of defensive schemes with 19.4 rebound chances nightly."
+      }
+    ]
+  }
+]

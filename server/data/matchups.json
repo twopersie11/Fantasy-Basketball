@@ -1,0 +1,362 @@
+[
+  {
+    "teams": [
+      "New York Knicks",
+      "Los Angeles Lakers"
+    ],
+    "summary": "Knicks lean on half-court execution and glass dominance while the Lakers push pace through LeBron-led transition opportunities.",
+    "pace": 98.1,
+    "headToHead": {
+      "New York Knicks": {
+        "wins": 6,
+        "losses": 4,
+        "avgPoints": 112.4,
+        "offensiveRating": 114.2,
+        "defensiveRating": 108.3,
+        "reboundMargin": "+4.2"
+      },
+      "Los Angeles Lakers": {
+        "wins": 4,
+        "losses": 6,
+        "avgPoints": 108.1,
+        "offensiveRating": 111,
+        "defensiveRating": 115.4,
+        "reboundMargin": "-4.2"
+      }
+    },
+    "keyFactors": [
+      "New York holds the Lakers to 31% shooting from deep over the last two seasons.",
+      "Lakers generate 18.2 fast-break points per meeting, best mark against Eastern opponents.",
+      "Bench units favor New York with a +8.7 net rating in head-to-head minutes."
+    ],
+    "recentGames": [
+      {
+        "date": "2024-02-12",
+        "venue": "Madison Square Garden",
+        "winner": "New York Knicks",
+        "scores": {
+          "New York Knicks": 118,
+          "Los Angeles Lakers": 109
+        }
+      },
+      {
+        "date": "2023-11-13",
+        "venue": "Crypto.com Arena",
+        "winner": "Los Angeles Lakers",
+        "scores": {
+          "New York Knicks": 112,
+          "Los Angeles Lakers": 118
+        }
+      },
+      {
+        "date": "2023-03-12",
+        "venue": "Crypto.com Arena",
+        "winner": "New York Knicks",
+        "scores": {
+          "New York Knicks": 112,
+          "Los Angeles Lakers": 108
+        }
+      }
+    ]
+  },
+  {
+    "teams": [
+      "New York Knicks",
+      "Golden State Warriors"
+    ],
+    "summary": "Warriors spacing stretches the Knicks defense, but New York counters with physicality, offensive rebounds, and drives attacking closeouts.",
+    "pace": 101.3,
+    "headToHead": {
+      "New York Knicks": {
+        "wins": 5,
+        "losses": 5,
+        "avgPoints": 114.2,
+        "offensiveRating": 112.9,
+        "defensiveRating": 113.7,
+        "reboundMargin": "+3.6"
+      },
+      "Golden State Warriors": {
+        "wins": 5,
+        "losses": 5,
+        "avgPoints": 116.8,
+        "offensiveRating": 118.7,
+        "defensiveRating": 115.5,
+        "reboundMargin": "-3.6"
+      }
+    },
+    "keyFactors": [
+      "Golden State averages 16.4 made threes versus New York, forcing cross-matches in transition.",
+      "Knicks own a +12 free-throw attempt differential thanks to aggressive drives from Brunson and Hart.",
+      "Steph Curry vs. Knicks traps yields 1.04 points per possession when he hits the short-roll outlet."
+    ],
+    "recentGames": [
+      {
+        "date": "2024-01-18",
+        "venue": "Chase Center",
+        "winner": "Golden State Warriors",
+        "scores": {
+          "New York Knicks": 115,
+          "Golden State Warriors": 123
+        }
+      },
+      {
+        "date": "2023-12-10",
+        "venue": "Madison Square Garden",
+        "winner": "New York Knicks",
+        "scores": {
+          "New York Knicks": 120,
+          "Golden State Warriors": 114
+        }
+      },
+      {
+        "date": "2023-02-23",
+        "venue": "Chase Center",
+        "winner": "Golden State Warriors",
+        "scores": {
+          "New York Knicks": 107,
+          "Golden State Warriors": 122
+        }
+      }
+    ]
+  },
+  {
+    "teams": [
+      "New York Knicks",
+      "Cleveland Cavaliers"
+    ],
+    "summary": "Playoff-style defensive battle where both teams limit turnovers; New York leans into rebounding while Cleveland rides Mitchell-Garland creation.",
+    "pace": 94.6,
+    "headToHead": {
+      "New York Knicks": {
+        "wins": 7,
+        "losses": 3,
+        "avgPoints": 108.6,
+        "offensiveRating": 109.7,
+        "defensiveRating": 104.8,
+        "reboundMargin": "+6.3"
+      },
+      "Cleveland Cavaliers": {
+        "wins": 3,
+        "losses": 7,
+        "avgPoints": 102.7,
+        "offensiveRating": 104.1,
+        "defensiveRating": 109.2,
+        "reboundMargin": "-6.3"
+      }
+    },
+    "keyFactors": [
+      "Knicks limit Mitchell to 41% shooting with mixed coverages and physicality at the point of attack.",
+      "Cleveland protects the paint, allowing only 45 points in the paint per game, forcing New York jumpers.",
+      "Low turnover environment—both clubs rank top-5 in turnover percentage during meetings."
+    ],
+    "recentGames": [
+      {
+        "date": "2024-03-05",
+        "venue": "Rocket Mortgage FieldHouse",
+        "winner": "New York Knicks",
+        "scores": {
+          "New York Knicks": 109,
+          "Cleveland Cavaliers": 102
+        }
+      },
+      {
+        "date": "2024-01-24",
+        "venue": "Madison Square Garden",
+        "winner": "Cleveland Cavaliers",
+        "scores": {
+          "New York Knicks": 101,
+          "Cleveland Cavaliers": 109
+        }
+      },
+      {
+        "date": "2023-11-01",
+        "venue": "Madison Square Garden",
+        "winner": "New York Knicks",
+        "scores": {
+          "New York Knicks": 112,
+          "Cleveland Cavaliers": 103
+        }
+      }
+    ]
+  },
+  {
+    "teams": [
+      "Los Angeles Lakers",
+      "Golden State Warriors"
+    ],
+    "summary": "Two contrasting styles—Lakers batter the paint and draw fouls while the Warriors rely on perimeter gravity and ball movement.",
+    "pace": 102.4,
+    "headToHead": {
+      "Los Angeles Lakers": {
+        "wins": 6,
+        "losses": 4,
+        "avgPoints": 117.9,
+        "offensiveRating": 116.1,
+        "defensiveRating": 112.7,
+        "reboundMargin": "+3.1"
+      },
+      "Golden State Warriors": {
+        "wins": 4,
+        "losses": 6,
+        "avgPoints": 115.3,
+        "offensiveRating": 113.4,
+        "defensiveRating": 116.8,
+        "reboundMargin": "-3.1"
+      }
+    },
+    "keyFactors": [
+      "Anthony Davis averages 12 free-throw attempts per matchup, forcing early foul trouble.",
+      "Golden State’s small-ball units generate 1.28 points per possession when Draymond screens for Curry.",
+      "Lakers push pace off live rebounds (18% transition frequency) to catch Warriors cross-matched."
+    ],
+    "recentGames": [
+      {
+        "date": "2024-03-16",
+        "venue": "Crypto.com Arena",
+        "winner": "Los Angeles Lakers",
+        "scores": {
+          "Los Angeles Lakers": 128,
+          "Golden State Warriors": 121
+        }
+      },
+      {
+        "date": "2024-02-22",
+        "venue": "Chase Center",
+        "winner": "Golden State Warriors",
+        "scores": {
+          "Los Angeles Lakers": 115,
+          "Golden State Warriors": 128
+        }
+      },
+      {
+        "date": "2023-05-12",
+        "venue": "Crypto.com Arena",
+        "winner": "Los Angeles Lakers",
+        "scores": {
+          "Los Angeles Lakers": 122,
+          "Golden State Warriors": 101
+        }
+      }
+    ]
+  },
+  {
+    "teams": [
+      "Los Angeles Lakers",
+      "Cleveland Cavaliers"
+    ],
+    "summary": "Physical interior duel with Davis versus Allen/Mobley while Mitchell and LeBron trade elite shot creation.",
+    "pace": 97.6,
+    "headToHead": {
+      "Los Angeles Lakers": {
+        "wins": 5,
+        "losses": 5,
+        "avgPoints": 113.2,
+        "offensiveRating": 112.5,
+        "defensiveRating": 111.9,
+        "reboundMargin": "+1.7"
+      },
+      "Cleveland Cavaliers": {
+        "wins": 5,
+        "losses": 5,
+        "avgPoints": 112.4,
+        "offensiveRating": 112.1,
+        "defensiveRating": 112.7,
+        "reboundMargin": "-1.7"
+      }
+    },
+    "keyFactors": [
+      "Cleveland limits Lakers transition looks to 13% frequency—well below their season average.",
+      "LeBron averages 29.4 points with 10.1 assists in last five meetings, exploiting switch mismatches.",
+      "Donovan Mitchell attacks drop coverage for 1.16 PPP when Davis sits."
+    ],
+    "recentGames": [
+      {
+        "date": "2024-01-29",
+        "venue": "Rocket Mortgage FieldHouse",
+        "winner": "Los Angeles Lakers",
+        "scores": {
+          "Los Angeles Lakers": 123,
+          "Cleveland Cavaliers": 118
+        }
+      },
+      {
+        "date": "2023-12-18",
+        "venue": "Crypto.com Arena",
+        "winner": "Cleveland Cavaliers",
+        "scores": {
+          "Los Angeles Lakers": 110,
+          "Cleveland Cavaliers": 116
+        }
+      },
+      {
+        "date": "2023-03-26",
+        "venue": "Crypto.com Arena",
+        "winner": "Los Angeles Lakers",
+        "scores": {
+          "Los Angeles Lakers": 117,
+          "Cleveland Cavaliers": 108
+        }
+      }
+    ]
+  },
+  {
+    "teams": [
+      "Golden State Warriors",
+      "Cleveland Cavaliers"
+    ],
+    "summary": "Warriors spacing versus Cleveland size; whoever controls the tempo between pace and grind gains the edge.",
+    "pace": 100.2,
+    "headToHead": {
+      "Golden State Warriors": {
+        "wins": 6,
+        "losses": 4,
+        "avgPoints": 118.7,
+        "offensiveRating": 117.9,
+        "defensiveRating": 110.8,
+        "reboundMargin": "-1.8"
+      },
+      "Cleveland Cavaliers": {
+        "wins": 4,
+        "losses": 6,
+        "avgPoints": 112.9,
+        "offensiveRating": 111.3,
+        "defensiveRating": 116.6,
+        "reboundMargin": "+1.8"
+      }
+    },
+    "keyFactors": [
+      "Cleveland hammers the offensive glass for 14.6 second-chance points per game against Golden State.",
+      "Warriors average 30.2 assists, punishing the Cavs whenever their two-big lineup is forced to rotate.",
+      "Steph Curry vs. Cavs drop coverage yields 1.33 PPP on pull-up threes."
+    ],
+    "recentGames": [
+      {
+        "date": "2024-02-08",
+        "venue": "Chase Center",
+        "winner": "Golden State Warriors",
+        "scores": {
+          "Golden State Warriors": 126,
+          "Cleveland Cavaliers": 118
+        }
+      },
+      {
+        "date": "2023-11-05",
+        "venue": "Rocket Mortgage FieldHouse",
+        "winner": "Cleveland Cavaliers",
+        "scores": {
+          "Golden State Warriors": 110,
+          "Cleveland Cavaliers": 115
+        }
+      },
+      {
+        "date": "2023-01-20",
+        "venue": "Rocket Mortgage FieldHouse",
+        "winner": "Golden State Warriors",
+        "scores": {
+          "Golden State Warriors": 120,
+          "Cleveland Cavaliers": 114
+        }
+      }
+    ]
+  }
+]
