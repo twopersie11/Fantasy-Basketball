@@ -1,0 +1,43 @@
+.yahoo-connect {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.65rem 1.4rem;
+  border-radius: 999px;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  text-decoration: none;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, filter 0.25s ease;
+  color: #f8fafc;
+  background: linear-gradient(135deg, #5b21b6, #312e81);
+  box-shadow: 0 10px 24px rgba(49, 46, 129, 0.4);
+  min-width: 12rem;
+}
+
+.yahoo-connect:hover,
+.yahoo-connect:focus {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 32px rgba(49, 46, 129, 0.5);
+  filter: brightness(1.05);
+}
+
+.yahoo-connect.is-connected {
+  background: linear-gradient(135deg, #15803d, #14532d);
+  box-shadow: 0 10px 24px rgba(21, 128, 61, 0.35);
+}
+
+.yahoo-connect.is-disconnected {
+  background: linear-gradient(135deg, #1d4ed8, #312e81);
+}
+
+.yahoo-connect:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(96, 165, 250, 0.55);
+}
+
+@media (max-width: 640px) {
+  .yahoo-connect {
+    width: 100%;
+    padding: 0.6rem 1rem;
+  }
+}

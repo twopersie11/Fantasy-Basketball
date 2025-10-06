@@ -1,19 +1,35 @@
 const express = require('express');
 const cors = require('cors');
+const session = require('express-session');
 
 const teamsRouter = require('./routes/teams');
+const authRouter = require('./routes/auth');
+const metricsRouter = require('./routes/metrics');
 const { teamsByName, getCanonicalTeamName } = require('./lib/teams');
 const { getMatchup } = require('./lib/matchups');
 const { getFantasyOptions, getFantasyAdvice } = require('./lib/fantasy');
 
 const app = express();
+app.set('trust proxy', 1);
 
 const clientOrigin = process.env.CLIENT_ORIGIN || 'http://localhost:3000';
+const sessionSecret = process.env.SESSION_SECRET || 'change-me';
 
 app.use(
   cors({
     origin: clientOrigin,
     credentials: true,
+  }),
+);
+app.use(
+  session({
+    secret: sessionSecret,
+    resave: false,
+    saveUninitialized: false,
+    cookie: {
+      secure: app.get('env') === 'production',
+      sameSite: app.get('env') === 'production' ? 'none' : 'lax',
+    },
   }),
 );
 app.use(express.json());
@@ -28,6 +44,8 @@ app.get('/api/data', (_req, res) => {
   });
 });
 
+app.use('/api/auth', authRouter);
+app.use('/api/metrics', metricsRouter);
 app.use('/api', teamsRouter);
 
 app.get('/api/matchups/:teamName1/:teamName2', (req, res) => {

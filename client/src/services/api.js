@@ -30,3 +30,18 @@ export const getFantasyAdvice = async (optionId) => {
   return data;
 };
 
+export const getYahooStatus = async () => {
+  const { data } = await apiClient.get('/auth/status');
+  return data;
+};
+
+export const getPlayerMetrics = async () => {
+  const { data } = await apiClient.get('/metrics/players');
+  return data;
+};
+
+export const getPlayerInjuryRisk = async (playerId) => {
+  const { data } = await apiClient.get(`/metrics/injury-risk/${encodeURIComponent(playerId)}`);
+  return data;
+};
+
