@@ -212,11 +212,11 @@ npm start
 1. Copy the example environment file and update it with your Yahoo credentials:
 
 ```
-cp .env.example .env
+cp server/.env.example server/.env
 ```
 
    * `SESSION_SECRET` should be a long random string.
-   * Replace the Yahoo values with the consumer key/secret that you registered in the [Yahoo Developer Portal](https://developer.yahoo.com/apps/).
+   * Replace the Yahoo values with the consumer key/secret that you registered in the [Yahoo Developer Portal](https://developer.yahoo.com/apps/). Both `YAHOO_CLIENT_ID`/`YAHOO_CLIENT_SECRET` and their `YAHOO_CONSUMER_*` aliases are supported.
    * Adjust `YAHOO_REDIRECT_URI` if your server runs on a different host or port.
 
 2. Navigate to the `server` directory:

@@ -1,15 +1,54 @@
 const axios = require('axios');
 const crypto = require('crypto');
 
+const logger = require('./logger');
+
 const AUTH_BASE_URL = 'https://api.login.yahoo.com';
 const FANTASY_API_BASE_URL = 'https://fantasysports.yahooapis.com/fantasy/v2';
 
-const YAHOO_APP_ID = process.env.YAHOO_APP_ID || 'EPgJ94V6';
-const YAHOO_CLIENT_ID =
-  process.env.YAHOO_CLIENT_ID ||
+const isProduction = process.env.NODE_ENV === 'production';
+const DEFAULT_CLIENT_ID =
   'dj0yJmk9eFJMT3U2YjNjWGZxJmQ9WVdrOVJWQm5TamswVmpZbWNHbzlNQT09JnM9Y29uc3VtZXJzZWNyZXQmc3Y9MCZ4PTU3';
-const YAHOO_CLIENT_SECRET =
-  process.env.YAHOO_CLIENT_SECRET || 'bbb596ed665de00fe2d07cde9f1795bbd3915a0d';
+const DEFAULT_CLIENT_SECRET = 'bbb596ed665de00fe2d07cde9f1795bbd3915a0d';
+
+const resolveConfigValue = (primary, { aliases = [], fallback = null } = {}) => {
+  const keys = [primary, ...aliases];
+
+  for (const key of keys) {
+    const value = process.env[key];
+    if (value) {
+      if (key !== primary) {
+        logger.debug(`Using ${key} for Yahoo OAuth ${primary}`);
+      }
+      return value;
+    }
+  }
+
+  if (fallback) {
+    if (process.env.NODE_ENV !== 'test') {
+      logger.warn(
+        `Environment variable ${primary} is not set. Falling back to a development default. ` +
+          'Set this variable (or one of its aliases) in production environments.',
+      );
+    }
+
+    return fallback;
+  }
+
+  const message = `Yahoo OAuth credentials missing. Set one of: ${keys.join(', ')}`;
+  logger.error(message);
+  throw new Error(message);
+};
+
+const YAHOO_APP_ID = process.env.YAHOO_APP_ID || 'EPgJ94V6';
+const YAHOO_CLIENT_ID = resolveConfigValue('YAHOO_CLIENT_ID', {
+  aliases: ['YAHOO_CONSUMER_KEY'],
+  fallback: isProduction ? null : DEFAULT_CLIENT_ID,
+});
+const YAHOO_CLIENT_SECRET = resolveConfigValue('YAHOO_CLIENT_SECRET', {
+  aliases: ['YAHOO_CONSUMER_SECRET'],
+  fallback: isProduction ? null : DEFAULT_CLIENT_SECRET,
+});
 const YAHOO_SCOPE = process.env.YAHOO_SCOPE || 'fspt-r fspt-w';
 
 const authClient = axios.create({ baseURL: AUTH_BASE_URL });
