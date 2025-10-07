@@ -1,6 +1,15 @@
-require('dotenv').config();
-
+const fs = require('fs');
 const path = require('path');
+const dotenv = require('dotenv');
+
+const loadEnvFile = (envPath, options = {}) => {
+  if (fs.existsSync(envPath)) {
+    dotenv.config({ path: envPath, override: false, ...options });
+  }
+};
+
+loadEnvFile(path.resolve(__dirname, '../.env'));
+loadEnvFile(path.resolve(__dirname, '.env'), { override: true });
 const express = require('express');
 const cors = require('cors');
 const session = require('express-session');
