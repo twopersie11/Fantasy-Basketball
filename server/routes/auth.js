@@ -6,6 +6,7 @@ const {
   storeTokensOnSession,
   isYahooConnected,
 } = require('../lib/yahoo');
+const logger = require('../lib/logger');
 
 const router = express.Router();
 
@@ -19,7 +20,7 @@ router.get('/yahoo/login', (req, res) => {
     const redirectUrl = buildAuthUrl(req, state);
     return res.redirect(redirectUrl);
   } catch (error) {
-    console.error('Failed to initiate Yahoo OAuth flow', error);
+    logger.error('Failed to initiate Yahoo OAuth flow', { error: error.message });
     return res.status(500).json({ error: 'Unable to initiate Yahoo authentication' });
   }
 });
@@ -28,7 +29,7 @@ router.get('/yahoo/callback', async (req, res) => {
   const { code, state, error } = req.query;
 
   if (error) {
-    console.error('Yahoo OAuth returned an error', error);
+    logger.warn('Yahoo OAuth returned an error', { error });
     return res.redirect(`${clientOrigin}/?yahoo=error`);
   }
 
@@ -37,6 +38,10 @@ router.get('/yahoo/callback', async (req, res) => {
   }
 
   if (!req.session.yahooOauthState || state !== req.session.yahooOauthState) {
+    logger.warn('Yahoo OAuth state mismatch', {
+      expected: req.session.yahooOauthState,
+      received: state,
+    });
     return res.status(400).json({ error: 'OAuth state mismatch' });
   }
 
@@ -47,20 +52,26 @@ router.get('/yahoo/callback', async (req, res) => {
 
     return req.session.save((saveError) => {
       if (saveError) {
-        console.error('Failed to persist Yahoo session', saveError);
+        logger.error('Failed to persist Yahoo session', { error: saveError.message });
         return res.status(500).json({ error: 'Unable to persist Yahoo session' });
       }
 
       return res.redirect(`${clientOrigin}/?yahoo=connected`);
     });
   } catch (oauthError) {
-    console.error('Failed to complete Yahoo OAuth flow', oauthError);
+    logger.error('Failed to complete Yahoo OAuth flow', { error: oauthError.message });
     return res.status(500).json({ error: 'Failed to authenticate with Yahoo' });
   }
 });
 
 router.get('/status', (req, res) => {
-  res.json({ connected: isYahooConnected(req.session) });
+  const connected = isYahooConnected(req.session);
+
+  res.json({
+    connected,
+    authenticated: connected,
+    user: req.session?.yahoo?.profile || null,
+  });
 });
 
 module.exports = router;

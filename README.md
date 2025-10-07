@@ -209,23 +209,35 @@ npm start
 ```
 
 #### Back-End
-1. Navigate to the `server` directory:
+1. Copy the example environment file and update it with your Yahoo credentials:
+
+```
+cp .env.example .env
+```
+
+   * `SESSION_SECRET` should be a long random string.
+   * Replace the Yahoo values with the consumer key/secret that you registered in the [Yahoo Developer Portal](https://developer.yahoo.com/apps/).
+   * Adjust `YAHOO_REDIRECT_URI` if your server runs on a different host or port.
+
+2. Navigate to the `server` directory:
 
 ```
 cd server
 ```
 
-2. Install dependencies:
+3. Install dependencies:
 
 ```
 npm install
 ```
 
-2. Start the server:
+4. Start the server (defaults to port `5000`):
 
 ```
 node index.js
 ```
+
+   The Express instance exposes its REST API under `http://localhost:5000/api`. When paired with the React development server, requests made to `/api/...` will be proxied to the backend because the client already defines `"proxy": "http://localhost:5000"` in `client/package.json`.
 
 </div>
 
